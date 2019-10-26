@@ -1,7 +1,7 @@
 @echo off
 chcp 1251 > nul
 title Компулятор 'Java' Кода
-mode con cols = 32 lines = 4
+mode con cols=32 lines=8
 color 0a
 
 echo %TIME% - Compilation
@@ -9,3 +9,5 @@ echo %TIME% - Compilation
 
 echo %TIME% - Start
 "C:\Program Files\Java\jdk-13.0.1\bin\java.exe" Tetris
+
+pause >nul
