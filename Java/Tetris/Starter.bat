@@ -1,7 +1,7 @@
 @echo off
 chcp 1251 > nul
 title Компулятор 'Java' Кода
-mode con cols=32 lines=8
+mode con cols=48 lines=32
 color 0a
 
 echo %TIME% - Compilation
