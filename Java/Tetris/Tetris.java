@@ -2,7 +2,7 @@
  * Matvey
  * Tetris
  */
-
+		
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyListener;
@@ -11,24 +11,24 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Random;
-
+		
 public class Tetris extends JPanel {
-
+		
 	//Переменные
-	protected static int block = 30, x = 0, y = 0, randForm;
-		public int ground[][][] = new int [20][10][3];
+	protected static int block = 30, speed = 1, x = 0, y = 0, randForm, test;
+		public int ground[][][] = new int [20][10][1];
 		public int form[][][] = { // фигурка / блоки / x,y или r,g,b
-		{{1, 2}, {2, 2}, {0, 1}, {1, 1}, {255, 0, 0}}, // -/_ red
-		{{1, 2}, {2, 2}, {1, 1}, {1, 0}, {255, 165, 0}}, // 1_ orange
-		{{1, 2}, {2, 2}, {1, 1}, {2, 1}, {255, 255, 0}}, // O yellow
-		{{0, 2}, {1, 2}, {1, 1}, {2, 1}, {0, 255, 0}}, // S green
-		{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {0, 255, 255}}, // I aqua
-		{{1, 2}, {2, 2}, {2, 1}, {2, 0}, {0, 0, 255}}, // J blue
-		{{1, 2}, {0, 1}, {1, 1}, {2, 1}, {255, 0, 255}}
+		{{1, 2}, {2, 2}, {0, 1}, {1, 1}, {0xff0000}},
+		{{1, 2}, {2, 2}, {1, 1}, {1, 0}, {0xffa500}},
+		{{1, 2}, {2, 2}, {1, 1}, {2, 1}, {0xffff00}},
+		{{0, 2}, {1, 2}, {1, 1}, {2, 1}, {0x00ff00}},
+		{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {0x00ffff}},
+		{{1, 2}, {2, 2}, {2, 1}, {2, 0}, {0x0000ff}},
+		{{1, 2}, {0, 1}, {1, 1}, {2, 1}, {0xff00ff}}
 	};
-	
+		
 	Random random = new Random();
-
+		
 	public static void main(String[] args) {
 
 		//Окно Приложения
@@ -45,11 +45,12 @@ public class Tetris extends JPanel {
 		//Проверка
 		jFrame.addKeyListener(new KeyAdapter() {
 			public void keyPressed(KeyEvent event) {
+				tetris.repaint();
 				switch(event.getKeyCode()) {
 					case 37: x--; break; //Лево
-					case 38: y--; break; //Низ
+					case 38: tetris.rotate(); break; //Поворот
 					case 39: x++; break; //Право
-					case 40: y++; break; //Верх
+					case 40: speed = 40; break; //низ
 				}
 			}
 		});
@@ -58,40 +59,57 @@ public class Tetris extends JPanel {
 			tetris.game();
 			tetris.repaint();
 			try {
-				Thread.sleep(500);
+				Thread.sleep(speed);
 			} catch (Exception e) {}
 		}
 	}
-
+		
 	// Логический Блок
 	private void game() {
-		y++;
-		if(y == 20) random();
+		test = 0;
+		for (int i = 0; i < 4; i++) {
+				if (form[randForm][i][1]+y+1 < 20) test++;
+			}
+		if (test == 4) y++; else {
+			for (int i = 0; i < 4; i++) {
+				ground[form[randForm][i][1]+y][form[randForm][i][0]+x][0] = (form[randForm][4][0]);
+			}
+			random();
+		}
 	}
 		
-	//Random
-		private void random(){
+	//Случайность
+	private void random(){
+		speed = 400;
 		randForm = random.nextInt(7);
 		y = -2;
 	}
 		
-		
+	//Поворот фигуры
+	private void rotate() {
+		int temp;
+		for (int i = 0; i < 4; i++) {
+			temp = form[randForm][i][0];
+			form[randForm][i][0] = -form[randForm][i][1]+3;
+			form[randForm][i][1] = temp;
+		};
+	}
 		
 	//Графика
 	public void paint(Graphics ctx) {
 		super.paint(ctx);
 		
-		//Днище10
+		//Днище
 		for(int i = 0; i < 20; i++){
 			for(int j = 0; j < 10; j++){
-				ctx.setColor(new Color(ground[i][j][0], ground[i][j][1], ground[i][j][2]));
+				ctx.setColor(new Color(ground[i][j][0]));                                                    
 				ctx.fillRect(block*j, block*i, block, block);
 			}
 		}
 
 		//фигуры
 		for(int i = 0; i < 4; i++){
-			ctx.setColor(new Color(form[randForm][4][0], form[randForm][4][1], form[randForm][4][2]));
+			ctx.setColor(new Color(form[randForm][4][0]));
 			ctx.fillRect(block*form[randForm][i][0]+x*block, block*form[randForm][i][1]+y*block, block, block);
 		}
 		
