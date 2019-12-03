@@ -43,7 +43,7 @@ public class Tetris extends JPanel {
 		jFrame.setVisible(true);
 		Tetris tetris = new Tetris();
 		jFrame.add(tetris);
-		tetris.random();
+		tetris.newBlock();
 
 		//Проверка
 		jFrame.addKeyListener(new KeyAdapter() {
@@ -71,18 +71,20 @@ public class Tetris extends JPanel {
 	private void game() {
 		test = 0;
 		for (int i = 0; i < 4; i++) {
-				if (form[i][1]+y+1 < 20) test++;
+				if (form[i][1]+y+1 < 20 && ground[form[i][1]+y+1][form[i][0]+x][0] == 0) test++;
 			}
 		if (test == 4) y++; else {
+		
 			for (int i = 0; i < 4; i++) {
 				ground[form[i][1]+y][form[i][0]+x][0] = color;
 			}
-			random();
+			clear();
+			newBlock();
 		}
 	}
 		
 	//Случайность
-	private void random(){
+	private void newBlock(){
 		color = forms[look][4][0];
 		colorBlock = new Color(color);
 		for (int i = 0; i < 4; i++){
@@ -91,7 +93,8 @@ public class Tetris extends JPanel {
 		}
 		speed = 300;
 		look = random.nextInt(7);
-		y = -2;
+		x = 3;
+		y = -1;
 	}
 	//Движени фигуры 2
 	private void move(int move) {
@@ -115,7 +118,21 @@ public class Tetris extends JPanel {
 			form[i][1] = temp;
 		};
 	}
-
+	
+	//Очистка ряда
+	private void clear() {
+		int temp;
+		for (int i = 0; i < 20; i++) {
+			temp = 0;
+			for (int j = 0; j < 10; j++)
+				if (ground[i][j][0] > 0)
+					temp++;
+		if (temp >= 10)
+			for (int j = 0; j < 10; j++)
+				ground[i][j][0] = 0;
+		}
+	}
+	
 	 //Графика
 	public void paint(Graphics ctx) {
 
