@@ -128,8 +128,10 @@ public class Tetris extends JPanel {
 				if (ground[i][j][0] > 0)
 					temp++;
 		if (temp >= 10)
-			for (int j = 0; j < 10; j++)
-				ground[i][j][0] = 0;
+			for (int iClear = i; iClear > 0; iClear--)
+				for (int j = 0; j < 10; j++)
+					if (iClear > 0)
+						ground[iClear][j][0] = ground[iClear-1][j][0];
 		}
 	}
 	
