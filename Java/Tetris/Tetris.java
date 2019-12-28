@@ -6,9 +6,11 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Random;
@@ -16,7 +18,7 @@ import java.util.Random;
 public class Tetris extends JPanel {
 
 	//Переменные
-	protected static int block = 30, speed = 400, test, color, look;
+	protected static int block = 30, speed = 400, test, color, look, line;
 		private int form[][] = new int[4][2];
 		public int ground[][][] = new int [20][10][1];
 		public int forms[][][] = { // фигурка / блоки / x,y или r,g,b
@@ -31,6 +33,7 @@ public class Tetris extends JPanel {
 
 	Random random = new Random();
 	private static Color colorBlock;
+	private static Image image = new ImageIcon("fon.png").getImage();
 
 	public static void main(String[] args) {
 
@@ -130,11 +133,13 @@ public class Tetris extends JPanel {
 			for (int j = 0; j < 10; j++)
 				if (ground[i][j][0] > 0)
 					temp++;
-		if (temp >= 10)
-			for (int iClear = i; iClear > 0; iClear--)
-				for (int j = 0; j < 10; j++)
-					if (iClear > 0)
-						ground[iClear][j][0] = ground[iClear-1][j][0];
+			if (temp >= 10) {
+				line++;
+				for (int iClear = i; iClear > 0; iClear--)
+					for (int j = 0; j < 10; j++)
+						if (iClear > 0)
+							ground[iClear][j][0] = ground[iClear-1][j][0];
+			}
 		}
 	}
 	
@@ -154,7 +159,8 @@ public class Tetris extends JPanel {
 		//Панель
 		ctx.setFont(new Font("Corier New", Font.BOLD, 20));
 		ctx.setColor(Color.red);
-		ctx.drawString(("Speed: " + speed), 11*block, 200);	
+		ctx.drawString(("Speed: " + speed), 11*block, 200);
+		ctx.drawString(("Line: " + line), 11*block, 240);
 
 		//Днище
 		for(int i = 0; i < 20; i++){
@@ -163,6 +169,9 @@ public class Tetris extends JPanel {
 				ctx.fillRect(block*j, block*i, block, block);
 			}
 		}
+
+		//fon
+		ctx.drawImage(image, 20, 150, null);
 
 		//фигуры
 		for(int i = 0; i < 4; i++){
