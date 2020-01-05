@@ -116,13 +116,26 @@ public class Tetris extends JPanel {
 
 	//Поворот фигуры
 	private void rotate() {
-		int temp;
 		
+		//Клонируем с поворотом
+		int tempBlock[][] = new int[4][2];
 		for (int i = 0; i < 4; i++) {
-			temp = form[i][0];
-			form[i][0] = -form[i][1]+form[0][1]+form[0][0];
-			form[i][1] = temp-form[0][0]+form[0][1];
-		};
+			tempBlock[i][0] = -form[i][1]+form[0][1]+form[0][0];
+			tempBlock[i][1] = form[i][0]-form[0][0]+form[0][1];
+		}
+		
+		//Провека на поворот
+		int temp = 0;
+		for (int i = 0; i < 4; i++)
+			if (tempBlock[i][0] >= 0 && tempBlock[i][0] < 10 && ground[tempBlock[i][1]][tempBlock[i][0]][0] == 0)
+				temp++;
+		
+		//Поворот
+		if (temp >= 4 && color != 0xffff00) //******** наговнокодил с квадратом ********
+			for (int i = 0; i < 4; i++) {
+				form[i][0] = tempBlock[i][0];
+				form[i][1] = tempBlock[i][1];
+			}
 	}
 	
 	//Очистка ряда
