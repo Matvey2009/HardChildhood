@@ -1,0 +1,29 @@
+
+
+Version:	3.12
+CmdLine:	D:\Documents\Programs\HardChildhood\Java\Tetris\Tetris.exe --l4j-debug
+WOW64:		yes
+Working dir:	D:\Documents\Programs\HardChildhood\Java\Tetris\.
+Java min ver:	1.000.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files (x86)\Java\jre1.8.0_221\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_221
+Check launcher:	C:\Program Files (x86)\Java\jre1.8.0_221\bin\javaw.exe (OK)
+Match:		1.008.000_221
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+32-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+32-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Check:		SOFTWARE\JavaSoft\JDK\13.0.1
+Check launcher:	C:\Program Files\Java\jdk-13.0.1\bin\javaw.exe (OK)
+Match:		1.013.000_001
+Runtime used:	1.013.000_001 (64-bit)
+Launcher:	C:\Program Files\Java\jdk-13.0.1\bin\javaw.exe
+Launcher args:	-jar "D:\Documents\Programs\HardChildhood\Java\Tetris\Tetris.exe"
+Args length:	65/32768 chars
+Exit code:	0
