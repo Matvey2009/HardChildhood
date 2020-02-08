@@ -15,15 +15,11 @@ namespace Обучение
             Console.WriteLine(x);
             Console.WriteLine();
 
-            Console.Write("Сравнение 2_<_3 - ");
             x = 2 < 3;
-            Console.WriteLine(x);
-            Console.WriteLine();
+            Console.WriteLine($"Сравнение 2_<_3 - {x}\n");
 
-            Console.Write("Сравнение 2_=_3 - ");
             x = 2 == 3;
-            Console.WriteLine(x);
-            Console.WriteLine();
+            Console.WriteLine($"Равенство 2_=_3 - {x}\n");
 
         }
     }
