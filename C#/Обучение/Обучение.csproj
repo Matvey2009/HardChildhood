@@ -46,6 +46,7 @@
     <Compile Include="Переменые.cs" />
     <Compile Include="Урок.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Условия.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
