@@ -1,0 +1,10 @@
+D:\Documents\Programs\HardChildhood\C#\MyOsu\bin\Debug\MyOsu.exe.config
+D:\Documents\Programs\HardChildhood\C#\MyOsu\bin\Debug\MyOsu.exe
+D:\Documents\Programs\HardChildhood\C#\MyOsu\bin\Debug\MyOsu.pdb
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.csprojAssemblyReference.cache
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.Form1.resources
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.Properties.Resources.resources
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.Resource1.resources
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.csproj.GenerateResource.cache
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.exe
+D:\Documents\Programs\HardChildhood\C#\MyOsu\obj\Debug\MyOsu.pdb
