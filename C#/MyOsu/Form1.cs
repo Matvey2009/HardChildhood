@@ -17,6 +17,7 @@ namespace MyOsu
         private Bitmap target = Resource1.kurs;
         private Point point = Point.Empty;
         private Random random = new Random();
+        int score = 0;
 
         // Запуск окна
         public Form1()
@@ -27,6 +28,7 @@ namespace MyOsu
                 ControlStyles.UserPaint, true);
             UpdateStyles();
 
+            randomTarget();
 
         }
 
@@ -36,23 +38,41 @@ namespace MyOsu
             Graphics ctx = e.Graphics;
             ctx.SmoothingMode = SmoothingMode.AntiAlias;
 
-            int score = 0;
-            score++;
+            
             label1.Text = score.ToString();
             
-                var position = this.PointToClient(Cursor.Position);
+                Point position = this.PointToClient(Cursor.Position);
 
-            point.X = 600 + random.Next(-4, 4) * 100;
-            point.Y = 600 + random.Next(-3, 3) * 100;
+           
 
-            ctx.DrawEllipse(new Pen(Color.Black, 2), point.X, point.Y, 100, 100);
-            ctx.DrawImage(target, position.X-50, position.Y-50, 100, 100);        
+            Rectangle cursorPosition = new Rectangle(position.X - 50, position.Y - 50, 100, 100);
+            Rectangle targetPosition = new Rectangle(point.X, point.Y, 100, 100);
+
+            ctx.DrawEllipse(new Pen(Color.Black, 2), targetPosition);
+            ctx.DrawImage(target, cursorPosition);    
         }
 
         // Обънавление окна 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            score++;
             Refresh();
+        }
+        //Перемещение Круга
+        private void randomTarget()
+        {
+            point.X = 600 + random.Next(-4, 4) * 100;
+            point.Y = 600 + random.Next(-3, 3) * 100;
+        }
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            randomTarget();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            randomTarget();
         }
     }
 }
