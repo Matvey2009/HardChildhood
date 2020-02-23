@@ -97,5 +97,8 @@
   <ItemGroup>
     <None Include="Resources\Ma4.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\click.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
