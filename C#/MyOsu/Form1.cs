@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Media;
@@ -13,8 +14,9 @@ namespace MyOsu
         private Point point = Point.Empty;
         private Random random = new Random();
         private Pen pen = new Pen(Color.Black, 2);
+        private Stopwatch stopwatch = new Stopwatch();
         private SoundPlayer soundPlayer = new SoundPlayer(Resource1.click);
-        int score = 0;
+        int score = 0, time, step, gipotinoza;
 
         // Запуск окна
         public Form1()
@@ -26,6 +28,7 @@ namespace MyOsu
             UpdateStyles();
             Cursor.Hide();
             randomTarget();
+            stopwatch.Start();
         }
 
         // Отрисовка окна
@@ -44,9 +47,7 @@ namespace MyOsu
 
             int catetX = cursorPosition.X - targetPosition.X;
             int catetY = cursorPosition.Y - targetPosition.Y;
-            int gipotinoza = (int) Math.Sqrt(catetX * catetX + catetY * catetY);
-
-            label1.Text = gipotinoza.ToString();
+            gipotinoza = (int) Math.Sqrt(catetX * catetX + catetY * catetY);
         }
 
         // Обънавление окна 
@@ -58,8 +59,10 @@ namespace MyOsu
         //Перемещение Круга
         private void randomTarget()
         {
+            Point position = point;
             point.X = Width / 2 + random.Next(-4, 4) * 100;
             point.Y = Height / 2 + random.Next(-3, 3) * 100;
+            if (position == point) randomTarget();
             
         }
 
@@ -76,9 +79,17 @@ namespace MyOsu
         //Ход игры
         private void StepGame()
         {
-            score++;
+            time = (int)stopwatch.Elapsed.TotalMilliseconds;
+            step++;
             soundPlayer.Play();
+
+            //Инфа
+            label2.Text = ("Таймер: " + time.ToString());
+            label3.Text = ("точность"+ gipotinoza.ToString());
+            label4.Text = ("step: " + step.ToString());
+
             randomTarget();
+            stopwatch.Restart();
         }
     }
 }
