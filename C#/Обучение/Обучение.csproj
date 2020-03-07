@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Переменые.cs" />
+    <Compile Include="Типы_данных.cs" />
     <Compile Include="Урок.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Условия.cs" />
