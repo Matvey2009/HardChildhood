@@ -17,10 +17,26 @@ namespace Обучение
 
             x = 2 < 3;
             Console.WriteLine($"Сравнение 2_<_3 - {x}\n");
-
+            
             x = 2 == 3;
             Console.WriteLine($"Равенство 2_=_3 - {x}\n");
 
+
+           int a = 16;
+           Console.WriteLine($"Остаток от деления : {a % 5}\n");
+           Console.WriteLine($"Побитовый сдвиг вниз 16 >> 1 : {a >>= 1}\n");
+           Console.WriteLine($"Побитовый сдвиг верх 8 << 1 : {a <<= 2}\n");
+
+            int b = 100, c = 3;
+            decimal d = (decimal) b / c;
+            Console.WriteLine(d);
+
+            Console.WriteLine($"Бинарный код 0b100001 - {0b100001}\n");
+            Console.WriteLine($"Байт код код 0xA1 - {0xA1}\n");
+            Console.WriteLine($"Число степени 3.2e4 - {3.2e4}\n");
+            Console.WriteLine($"Число степени(-) 1.2e-3 - {1.2e-3}\n");
+            Console.WriteLine($"Уни код \u0420 - {"\u0420"}\n");
+            Console.WriteLine($"ASC|| \x5A - {"\x5A"}\n");
         }
     }
 }
