@@ -84,12 +84,16 @@ namespace MyOsu
             soundPlayer.Play();
 
             //Инфа
+            score = 300 / (gipotinoza + time);
+            label1.Text = ("Очки: " + score.ToString());
             label2.Text = ("Таймер: " + time.ToString());
             label3.Text = ("точность"+ gipotinoza.ToString());
             label4.Text = ("step: " + step.ToString());
 
             randomTarget();
             stopwatch.Restart();
+            //if (gipotinoza <= 50) + 300 score;
+            //if (gipotinoza >= 50) + 100 score;
         }
     }
 }
