@@ -37,6 +37,12 @@ namespace Обучение
             Console.WriteLine($"Число степени(-) 1.2e-3 - {1.2e-3}\n");
             Console.WriteLine($"Уни код \u0420 - {"\u0420"}\n");
             Console.WriteLine($"ASC|| \x5A - {"\x5A"}\n");
+
+            DateTime mydr = new DateTime(2009, 01, 25);
+            Console.WriteLine($"Моё День Рождения - {mydr}\n");
+            Console.WriteLine($"День Недели Моего День Рождения - {mydr.DayOfWeek}\n");
+            DateTime today = DateTime.Now;
+            Console.WriteLine($"Число - {(today - mydr).Days}\n");
         }
     }
 }
