@@ -16,7 +16,7 @@ namespace MyOsu
         private Pen pen = new Pen(Color.Black, 2);
         private Stopwatch stopwatch = new Stopwatch();
         private SoundPlayer soundPlayer = new SoundPlayer(Resource1.click);
-        int score = 0, time, step, gipotinoza;
+        int score = 0, scoreAll, time, step, gipotinoza;
 
         // Запуск окна
         public Form1()
@@ -84,16 +84,15 @@ namespace MyOsu
             soundPlayer.Play();
 
             //Инфа
-            score = 300 / (gipotinoza + time);
+            score = 36000 / time + 600 / gipotinoza;
+            scoreAll += score;
             label1.Text = ("Очки: " + score.ToString());
             label2.Text = ("Таймер: " + time.ToString());
             label3.Text = ("точность"+ gipotinoza.ToString());
             label4.Text = ("step: " + step.ToString());
-
+            label5.Text = ("Общие очки" + scoreAll.ToString());
             randomTarget();
             stopwatch.Restart();
-            //if (gipotinoza <= 50) + 300 score;
-            //if (gipotinoza >= 50) + 100 score;
         }
     }
 }
