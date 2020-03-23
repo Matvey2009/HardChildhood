@@ -24,6 +24,23 @@ namespace Обучение
             Console.WriteLine($"decimal(128bit) - {123456.789}\n");
             Console.WriteLine($"char(16bit) - {"x"}\n");
             Console.WriteLine($"string(ссылка) - {"hello"}\n");
+            
+        }
+
+        public enum Неделя {Пононедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье }
+        //Структуры
+        public void структуры()
+        {
+            Неделя day = 0;
+            for(byte i = 0; i < 7; i++)
+                Console.WriteLine($"День недели {day + i}\n");
+            var tuple = (5, 10);
+            Console.WriteLine($"tuple {tuple}\n");
+
+            (string, int, double)shcolnick = ("Матвей Покидько Сергеевич", 2009, 1.45);
+            Console.WriteLine($"shcolnick {shcolnick}\n");
+            Console.WriteLine($"shcolnick.Item3 {shcolnick.Item3}\n");
+            
         }
     }
 }
