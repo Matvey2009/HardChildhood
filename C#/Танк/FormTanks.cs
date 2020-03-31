@@ -13,9 +13,9 @@ namespace Танк
     public partial class FormTanks : Form
     {
         Graphics g;
-        Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
-        Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
+        Tank tank = new Tank();
+        Random random = new Random();
+        Point position = Point.Empty;
 
         public FormTanks()
         {
@@ -28,7 +28,7 @@ namespace Танк
         int x;
         private void Form1_Load(object sender, EventArgs e)
         {
-            ///////////////////////////////////
+            
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -41,23 +41,19 @@ namespace Танк
         {
             Refresh();
         }
-        Point position = new Point(0, 600);
+
         private void FormTanks_Paint(object sender, PaintEventArgs e)
         {
             label1.Text = x.ToString();
             x++;
             g = e.Graphics;
 
-            position.X = position.X + 1;
-            position.Y = position.Y - 1;
-
-            //Танк 1
-            g.DrawImage(bitmap, position.X, position.Y, body, GraphicsUnit.Pixel);
-            g.DrawImage(bitmap, position.X, position.Y, tower, GraphicsUnit.Pixel);
-
-            //Танк 2
-            g.DrawImage(bitmap, position.X - 128, position.Y + 128, body, GraphicsUnit.Pixel);
-            g.DrawImage(bitmap, position.X - 128, position.Y + 128, tower, GraphicsUnit.Pixel);
+            //for (byte i = 0; i < 10; i++)
+            {
+                position.X = 500;
+                position.Y = 300;
+                tank.DrawTank(g, position);
+            }
         }
     }
 }
