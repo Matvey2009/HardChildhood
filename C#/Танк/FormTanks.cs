@@ -13,9 +13,7 @@ namespace Танк
     public partial class FormTanks : Form
     {
         Graphics g;
-        Tank tank = new Tank();
-        Random random = new Random();
-        Point position = Point.Empty;
+        ListTant listTant;
 
         public FormTanks()
         {
@@ -24,11 +22,12 @@ namespace Танк
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint, true);
             UpdateStyles();
+            
         }
         int x;
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            listTant = new ListTant();
         }
 
         private void Form1_Click(object sender, EventArgs e)
@@ -47,13 +46,7 @@ namespace Танк
             label1.Text = x.ToString();
             x++;
             g = e.Graphics;
-
-            //for (byte i = 0; i < 10; i++)
-            {
-                position.X = 500;
-                position.Y = 300;
-                tank.DrawTank(g, position);
-            }
+            listTant.DriweListTant(g);
         }
     }
 }
