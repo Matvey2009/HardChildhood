@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Танк
@@ -15,6 +9,7 @@ namespace Танк
         Graphics g;
         ListTant listTant;
 
+        //Окно
         public FormTanks()
         {
             InitializeComponent();
@@ -22,31 +17,33 @@ namespace Танк
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.UserPaint, true);
             UpdateStyles();
-            
         }
-        int x;
+
+        //Загруска окна
         private void Form1_Load(object sender, EventArgs e)
         {
             listTant = new ListTant();
+            listTant.CreateListTant();
         }
 
-        private void Form1_Click(object sender, EventArgs e)
+        //Обновление окна
+        private void FormTanks_Paint(object sender, PaintEventArgs e)
         {
-            if (timer.Enabled == true) timer.Enabled = false;
-            else timer.Enabled = true;
+            g = e.Graphics;
+            listTant.DriweListTant(g);
         }
 
+        //Таймер
         private void timer_Tick(object sender, EventArgs e)
         {
             Refresh();
         }
 
-        private void FormTanks_Paint(object sender, PaintEventArgs e)
+        //Старт-Стоп
+        private void Form1_Click(object sender, EventArgs e)
         {
-            label1.Text = x.ToString();
-            x++;
-            g = e.Graphics;
-            listTant.DriweListTant(g);
+            if (timer.Enabled == true) timer.Enabled = false;
+            else timer.Enabled = true;
         }
     }
 }
