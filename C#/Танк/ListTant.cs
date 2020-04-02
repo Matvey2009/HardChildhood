@@ -7,15 +7,30 @@ using System.Threading.Tasks;
 
 namespace Танк
 {
-    class ListTant
+    class ListTant : List<Tank>
     {
-        Tank tank;
-        
+        Tank tank = new Tank();
+        List<Tank> listTank = new List<Tank>();
+
+        //Создаём лист танков
+        public List<Tank> CreateListTant()
+        {
+            for (byte i = 1; i <= 10; i++) 
+            {
+                listTank.Add(new Tank()
+                {
+                    id = i,
+                    position = tank.Position()
+                });
+            }
+            return listTank;
+        }
+
+        //Отрисовка лист танков
         public void DriweListTant(Graphics g)
         {
-            for (byte i = 0; i < 10; i++)
+            foreach (Tank tank in listTank)
             {
-                tank = new Tank();
                 tank.DrawTank(g);
             }
         }
