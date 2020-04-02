@@ -5,11 +5,11 @@ namespace Танк
 {
     class Tank
     {
-        int id;//Нопер танка
+        public int id;//Нопер танка
         float vector; //Угол повророта корпуса
         float vectorTower; //Угол повророта башня
         public Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
-        Point position;//Местоподожение
+        public Point position;//Местоподожение
         Point target;//Цель
         Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
         Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
@@ -19,8 +19,6 @@ namespace Танк
         //Отрисовка танка
         public void DrawTank(Graphics g)
         {
-            position = Position();
-
             //Корпус
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
@@ -34,7 +32,7 @@ namespace Танк
         }
 
         //Расчёт позиции танка
-        private Point Position()
+        public Point Position()
         {
             position.X = random.Next(1280);
             position.Y = random.Next(720);
