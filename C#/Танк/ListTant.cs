@@ -9,29 +9,39 @@ namespace Танк
 {
     class ListTant : List<Tank>
     {
-        Tank tank = new Tank();
-        List<Tank> listTank = new List<Tank>();
+        private Random random = new Random();
+        private List<Tank> listTank = new List<Tank>();
+        private byte count = 10;
 
         //Создаём лист танков
         public List<Tank> CreateListTant()
         {
-            for (byte i = 1; i <= 10; i++) 
+            for (byte i = 1; i <= count; i++) 
             {
                 listTank.Add(new Tank()
                 {
                     id = i,
-                    position = tank.Position()
+                    position = StartPosition()
                 });
             }
             return listTank;
         }
 
+        //Стартовая позиция
+        private Point StartPosition()
+        {
+            Point position = new Point();
+            position.X = random.Next(1280);
+            position.Y = random.Next(720);
+            return position;
+        }
+
         //Отрисовка лист танков
-        public void DriweListTant(Graphics g)
+        public void DriweListTant(Graphics g, Point cursor)
         {
             foreach (Tank tank in listTank)
             {
-                tank.DrawTank(g);
+                tank.DrawTank(g, cursor);
             }
         }
     }
