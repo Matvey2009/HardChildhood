@@ -6,19 +6,24 @@ namespace Танк
     class Tank
     {
         public int id;//Нопер танка
-        float vector; //Угол повророта корпуса
-        float vectorTower; //Угол повророта башня
-        public Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
-        public Point position;//Местоподожение
-        Point target;//Цель
-        Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
-        Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
-        Random random = new Random();
+        public PointF position;//Местоподожение
 
+        private float vector; //Угол повророта корпуса
+        private float vectorTower; //Угол повророта башня
+        private Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
+        private PointF target;//Цель
+        private float speed = 1;
+        private Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
+        private Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
 
         //Отрисовка танка
-        public void DrawTank(Graphics g)
+        public void DrawTank(Graphics g, Point cursor)
         {
+            target = cursor;
+            Position();
+            Vector();
+            vectorTower = vector;
+
             //Корпус
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
@@ -31,11 +36,21 @@ namespace Танк
             g.ResetTransform();
         }
 
-        //Расчёт позиции танка
-        public Point Position()
+        //Расчёт поворота танка
+        private float Vector()
         {
-            position.X = random.Next(1280);
-            position.Y = random.Next(720);
+            float catetX = target.X - position.X;
+            float catetY = target.Y - position.Y;
+            vector = (float)(Math.Atan2(catetY, catetX) * 180 / Math.PI + 90);
+
+            return vector;
+        }
+
+        //Расчёт позиции танка
+        private PointF Position()
+        {
+            position.X += speed * (float)Math.Cos(vector);
+            position.Y += speed * (float)Math.Sin(vector);
             return position;
         }
     }
