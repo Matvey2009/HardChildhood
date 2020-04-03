@@ -8,6 +8,7 @@ namespace Танк
     {
         Graphics g;
         ListTant listTant;
+        private Point cursor;
 
         //Окно
         public FormTanks()
@@ -30,7 +31,8 @@ namespace Танк
         private void FormTanks_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
-            listTant.DriweListTant(g);
+            cursor = PointToClient(Cursor.Position);
+            listTant.DriweListTant(g, cursor);
         }
 
         //Таймер
