@@ -11,6 +11,7 @@ namespace Танк
     {
         private Random random = new Random();
         private List<Tank> listTank = new List<Tank>();
+        private List<Car> listCar = new List<Car>();
         private byte count = 10;
 
         //Создаём лист танков
@@ -25,6 +26,20 @@ namespace Танк
                 });
             }
             return listTank;
+        }
+
+        //Создаём лист машин
+        public List<Car> CreateListCar()
+        {
+            for (byte i = 1; i <= count; i++)
+            {
+                listCar.Add(new Car()
+                {
+                    id = i,
+                    position = StartPosition()
+                });
+            }
+            return listCar;
         }
 
         //Стартовая позиция
@@ -42,6 +57,15 @@ namespace Танк
             foreach (Tank tank in listTank)
             {
                 tank.DrawTank(g, cursor);
+            }
+        }
+
+        //Отрисовка лист машин
+        public void DriweListCar(Graphics g, Point cursor)
+        {
+            foreach (Car car in listCar)
+            {
+                car.DrawCar(g, cursor);
             }
         }
     }
