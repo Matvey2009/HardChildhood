@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Car.cs" />
     <Compile Include="FormTanks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tank.cs" />
+    <Compile Include="Unit.cs" />
     <EmbeddedResource Include="FormTanks.resx">
       <DependentUpon>FormTanks.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Танк.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
