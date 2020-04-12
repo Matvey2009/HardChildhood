@@ -1,18 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Танк
 {
-    class Tank
+    class Tank : Unit
     {
-        public int id;//Нопер танка
-        public PointF position;//Местоподожение
-
-        private float vector; //Угол повророта корпуса
         private float vectorTower; //Угол повророта башня
         private Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
-        private PointF target;//Цель
-        private float speed = 1;
         private Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
         private Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
 
@@ -23,6 +16,7 @@ namespace Танк
             Position();
             Vector();
             vectorTower = vector;
+            speed = 1;
 
             //Корпус
             g.TranslateTransform(position.X, position.Y);
@@ -34,24 +28,6 @@ namespace Танк
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -48, -87, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
-        }
-
-        //Расчёт поворота танка
-        private float Vector()
-        {
-            float catetX = target.X - position.X;
-            float catetY = target.Y - position.Y;
-            vector = (float)(Math.Atan2(catetY, catetX) * 180 / Math.PI + 90);
-
-            return vector;
-        }
-
-        //Расчёт позиции танка
-        private PointF Position()
-        {
-            position.X += speed * (float)Math.Cos(vector);
-            position.Y += speed * (float)Math.Sin(vector);
-            return position;
         }
     }
 }
