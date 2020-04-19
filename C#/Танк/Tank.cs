@@ -10,7 +10,7 @@ namespace Танк
         private Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
 
         //Отрисовка танка
-        public void DrawTank(Graphics g, Point cursor)
+        public void DrawUnit(Graphics g, Point cursor)
         {
             target = cursor;
             Position();
