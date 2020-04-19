@@ -8,7 +8,7 @@ namespace Танк
         private Rectangle body = new Rectangle(new Point(0, 0), new Size(64, 64));
 
         //Отрисовка танка
-        public void DrawCar(Graphics g, Point cursor)
+        public void DrawUnit    (Graphics g, Point cursor)
         {
             target = cursor;
             Position();
@@ -18,7 +18,7 @@ namespace Танк
             //Машина
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
-            g.DrawImage(bitmap, -68, -70, body, GraphicsUnit.Pixel);
+            g.DrawImage(bitmap, -36, -48, body, GraphicsUnit.Pixel);
             g.ResetTransform();
         }
     }
