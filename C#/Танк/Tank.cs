@@ -2,10 +2,10 @@
 
 namespace Танк
 {
-    class Tank : Unit
+    class Tank : Unit, IDrawn
     {
         private float vectorTower; //Угол повророта башня
-        private Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
+        private readonly Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
         private Rectangle body = new Rectangle(new Point(0, 0), new Size(128, 128));
         private Rectangle tower = new Rectangle(new Point(128, 0), new Size(128, 128));
 
@@ -18,6 +18,7 @@ namespace Танк
             vectorTower = vector;
             speed = 1;
 
+            #region *** Отрисовка по частям ***
             //Корпус
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
@@ -28,6 +29,9 @@ namespace Танк
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -48, -87, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
+
+            DrawInfo(g);
+            #endregion
         }
     }
 }
