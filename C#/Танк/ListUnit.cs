@@ -20,13 +20,11 @@ namespace Танк
             {
                 listUnits.Add(new Tank
                 {
-                    id = i,
                     position = StartPosition()
                 });
 
                 listUnits.Add(new Car
                 {
-                    id = i,
                     position = StartPosition()
                 });
             }
