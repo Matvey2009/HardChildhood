@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Танк
 {
-    abstract class Unit
+    abstract class Unit : Aobject
     {
         private static uint ID;
 
@@ -24,7 +24,7 @@ namespace Танк
         {
             //Наименование
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(vector.ToString(), font, color, -7 , -40);
+            g.DrawString(id.ToString(), font, color, -7 , -40);
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
