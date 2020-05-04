@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Танк
@@ -9,6 +10,7 @@ namespace Танк
         public Graphics g;
         private ListUnit listUnit;
         private Point cursor;
+        Shot shot = new Shot();
 
         //Окно
         public FormTanks()
@@ -25,8 +27,8 @@ namespace Танк
         {
             listUnit = new ListUnit();
             listUnit.CreateListUnit();
-            //SW();
-            Sound();
+            SW();
+            //Sound();
         }
 
         //Обновление окна
@@ -35,6 +37,9 @@ namespace Танк
             g = e.Graphics;
             cursor = PointToClient(Cursor.Position);
             listUnit.DriweListUnit(g, cursor);
+
+            shot.position = new PointF(50, 50);
+            shot.DrawShot(g, cursor);
         }
 
         //Таймер
@@ -50,28 +55,31 @@ namespace Танк
             else timer.Enabled = true;
         }
         //Звук заставки
-        private void SW()
+        async private void SW()
         {
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(659, 500);
-            Console.Beep(698, 350);
-            Console.Beep(523, 150);
-            Console.Beep(415, 500);
-            Console.Beep(349, 350);
-            Console.Beep(523, 150);
-            Console.Beep(440, 1000);
+            await Task.Run(() =>
+            {
+                Console.Beep(440, 500);
+                Console.Beep(440, 500);
+                Console.Beep(440, 500);
+                Console.Beep(349, 350);
+                Console.Beep(523, 150);
+                Console.Beep(440, 500);
+                Console.Beep(349, 350);
+                Console.Beep(523, 150);
+                Console.Beep(440, 1000);
+                Console.Beep(659, 500);
+                Console.Beep(659, 500);
+                Console.Beep(659, 500);
+                Console.Beep(698, 350);
+                Console.Beep(523, 150);
+                Console.Beep(415, 500);
+                Console.Beep(349, 350);
+                Console.Beep(523, 150);
+                Console.Beep(440, 1000);
+            });
         }
-        private void Sound()
+         private void Sound()
         {
             //261
             //293
