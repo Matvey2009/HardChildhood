@@ -13,11 +13,11 @@ namespace Танк
         //Отрисовка танка
         public void DrawUnit(Graphics g, Point cursor)
         {
-            target = cursor;
-            Position();
-            Vector();
-            vectorTower = vector;
             speed = 1;
+            target = cursor;
+            vector = Vector(vector, speed);
+            vectorTower = Vector(vectorTower, speed*2);
+            Position();
 
             #region *** Отрисовка по частям ***
             //Корпус
