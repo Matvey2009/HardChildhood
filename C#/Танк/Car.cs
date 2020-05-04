@@ -11,15 +11,15 @@ namespace Танк
         //Отрисовка танка
         public void DrawUnit (Graphics g, Point cursor)
         {
-            target = cursor;
-            Position();
-            Vector();
             speed = 3;
+            target = cursor;
+            vector = Vector(vector, speed);
+            Position();
 
             //Машина
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
-            g.DrawImage(bitmap, -36, -48, body, GraphicsUnit.Pixel);
+            g.DrawImage(bitmap, -16, -32, body, GraphicsUnit.Pixel);
             g.ResetTransform();
 
             DrawInfo(g);
