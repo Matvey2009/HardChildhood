@@ -46,6 +46,7 @@ namespace Танк
             Point position = new Point();
             position.X = random.Next(1280);
             position.Y = random.Next(720);
+
             return position;
         }
     }
