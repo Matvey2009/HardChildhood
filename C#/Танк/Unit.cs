@@ -33,12 +33,12 @@ namespace Танк
         }
 
         //Расчёт поворота unit
-        public float Vector()
+        public float Vector(float vector, float speed)
         {
             //Угол на цель
             float catetX = target.X - position.X;
             float catetY = target.Y - position.Y;
-            float angle = (float)(Math.Atan2(catetY, catetX) * 180 / Math.PI + 90);
+            angle = (float)(Math.Atan2(catetY, catetX) * 180 / Math.PI + 90);
             if (angle < 0) angle += 360;
 
             //Текущий угол
