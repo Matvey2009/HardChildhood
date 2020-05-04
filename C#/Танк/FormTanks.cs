@@ -25,6 +25,8 @@ namespace Танк
         {
             listUnit = new ListUnit();
             listUnit.CreateListUnit();
+            //SW();
+            Sound();
         }
 
         //Обновление окна
@@ -46,6 +48,51 @@ namespace Танк
         {
             if (timer.Enabled == true) timer.Enabled = false;
             else timer.Enabled = true;
+        }
+        //Звук заставки
+        private void SW()
+        {
+            Console.Beep(440, 500);
+            Console.Beep(440, 500);
+            Console.Beep(440, 500);
+            Console.Beep(349, 350);
+            Console.Beep(523, 150);
+            Console.Beep(440, 500);
+            Console.Beep(349, 350);
+            Console.Beep(523, 150);
+            Console.Beep(440, 1000);
+            Console.Beep(659, 500);
+            Console.Beep(659, 500);
+            Console.Beep(659, 500);
+            Console.Beep(698, 350);
+            Console.Beep(523, 150);
+            Console.Beep(415, 500);
+            Console.Beep(349, 350);
+            Console.Beep(523, 150);
+            Console.Beep(440, 1000);
+        }
+        private void Sound()
+        {
+            //261
+            //293
+            //329
+            //349
+            //392
+            //440
+            //493
+            Console.Beep(261, 400);
+            Console.Beep(293, 400);
+            Console.Beep(440, 400);
+            Console.Beep(293, 400);
+            Console.Beep(493, 400);
+            Console.Beep(440, 400);
+            Console.Beep(349, 400);
+            Console.Beep(293, 400);
+            Console.Beep(349, 400);
+            Console.Beep(349, 400);
+            Console.Beep(493, 400);
+            Console.Beep(440, 400);
+            Console.Beep(493, 400);
         }
     }
 }
