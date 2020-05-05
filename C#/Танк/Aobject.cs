@@ -5,7 +5,8 @@ namespace Танк
     abstract class Aobject
     {
         public PointF position;//Местоподожение
-        public PointF target;//Цель
-        public float speed;
+        public PointF target; //Цель
+        public float vector; //Угол повророта корпуса
+        public float speed; //Скорость
     }
 }
