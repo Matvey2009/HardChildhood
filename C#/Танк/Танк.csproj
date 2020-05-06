@@ -54,7 +54,9 @@
     <Compile Include="FormTanks.Designer.cs">
       <DependentUpon>FormTanks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game.cs" />
     <Compile Include="IDrawn.cs" />
+    <Compile Include="ListShot.cs" />
     <Compile Include="ListUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
