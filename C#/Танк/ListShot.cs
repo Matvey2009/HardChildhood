@@ -1,0 +1,7 @@
+﻿namespace Танк
+{
+    class ListShot
+    {
+        
+    }
+}
