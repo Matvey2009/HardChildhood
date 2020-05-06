@@ -25,11 +25,15 @@ namespace Танк
             g.RotateTransform(vector);
             g.DrawImage(bitmap, -68, -70, body, GraphicsUnit.Pixel);
             g.ResetTransform();
+
             //Башня
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vectorTower);
             g.DrawImage(bitmap, -48, -87, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
+
+            Pen pen = new Pen(Color.Red, 3);
+            g.DrawEllipse(pen, position.X-15, position.Y-15, 32, 32);
 
             DrawInfo(g);
             #endregion
