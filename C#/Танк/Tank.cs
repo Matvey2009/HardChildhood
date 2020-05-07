@@ -9,6 +9,7 @@ namespace Танк
         private readonly Bitmap bitmap = new Bitmap(Properties.Resources.Танкpng);
         private Rectangle body = new Rectangle(new Point(0, 0), size);
         private Rectangle tower = new Rectangle(new Point(128, 0), size);
+        private Pen pen;
 
         //Отрисовка танка
         public void DrawUnit(Graphics g, Point cursor)
@@ -17,7 +18,7 @@ namespace Танк
             target = cursor;
             vector = Vector(vector, speed);
             vectorTower = Vector(vectorTower, speed*2);
-            Position();
+            PositionUnit();
 
             #region *** Отрисовка по частям ***
             //Корпус
@@ -32,7 +33,7 @@ namespace Танк
             g.DrawImage(bitmap, -48, -87, tower, GraphicsUnit.Pixel);
             g.ResetTransform();
 
-            Pen pen = new Pen(Color.Red, 3);
+            pen = new Pen(color, 3);
             g.DrawEllipse(pen, position.X-15, position.Y-15, 32, 32);
 
             DrawInfo(g);
