@@ -14,10 +14,10 @@ namespace Танк
         public void StartGame()
         {
             RedParty = new ListUnit();
-            RedParty.CreateListUnit();
+            RedParty.CreateListUnit(Color.Red);
 
             BlueParty = new ListUnit();
-            BlueParty.CreateListUnit();
+            BlueParty.CreateListUnit(Color.Blue);
 
             SW();
             //Sound();
@@ -35,6 +35,7 @@ namespace Танк
             BlueParty.DriweListUnit(g, cursor);
 
             shot.DrawShot(g);
+
         }
 
         //Звук заставки
