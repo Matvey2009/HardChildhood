@@ -14,17 +14,19 @@ namespace Танк
         private byte count = 10;
 
         //Создаём лист танков
-        public List<object> CreateListUnit()
+        public List<object> CreateListUnit(Color color)
         {
             for (byte i = 1; i <= count; i++) 
             {
                 listUnits.Add(new Tank
                 {
+                    color = color,
                     position = StartPosition()
                 });
 
                 listUnits.Add(new Car
                 {
+                    color = color,
                     position = StartPosition()
                 });
             }
