@@ -11,20 +11,11 @@ namespace Танк
         //Рисунок пульки
         public void DrawShot(Graphics g)
         {
+            vector = Vector();
+            position0 = position;
             position = Position();
             pen = new Pen(Color.DarkOrange, 3);
             g.DrawLine(pen, position, position0);
-        }
-
-        //Расчёт позиции unit
-        public PointF Position()
-        {
-            vector = Vector();
-            position0 = position;
-            position.X += speed * (float)Math.Cos(vector);
-            position.Y += speed * (float)Math.Sin(vector);
-
-            return position;
         }
 
         //Угол на цель
