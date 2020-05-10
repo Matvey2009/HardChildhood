@@ -10,14 +10,14 @@ namespace Танк
         private ListShot listShot;
         Shot shot;
 
-        // Старт Игры
+        //Старт Игры
         public void StartGame()
         {
             RedParty = new ListUnit();
-            RedParty.CreateListUnit(Color.Red);
+            RedParty.CreateListUnit(Color.Red, 20);
 
             BlueParty = new ListUnit();
-            BlueParty.CreateListUnit(Color.Blue);
+            BlueParty.CreateListUnit(Color.Blue, 80);
 
             SW();
             //Sound();
