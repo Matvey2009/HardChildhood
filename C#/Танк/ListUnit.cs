@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Танк
 {
     class ListUnit
     {
+        private Size window = FormTanks.window;
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
         private byte count = 10;
 
         //Создаём лист танков
-        public List<object> CreateListUnit(Color color)
+        public List<object> CreateListUnit(Color color, int x)
         {
             for (byte i = 1; i <= count; i++) 
             {
                 listUnits.Add(new Tank
                 {
                     color = color,
-                    position = StartPosition()
-                });
+                    position = StartPosition(x)
+            });
 
                 listUnits.Add(new Car
                 {
                     color = color,
-                    position = StartPosition()
+                    position = StartPosition(x)
                 });
             }
             return listUnits;
@@ -43,11 +41,11 @@ namespace Танк
         }
 
         //Стартовая позиция
-        private Point StartPosition()
+        private Point StartPosition(int x)
         {
             Point position = new Point();
-            position.X = random.Next(1280);
-            position.Y = random.Next(720);
+            position.X = window.Width * x / 100 + random.Next(-200, 200);
+            position.Y = random.Next(50, window.Height - 50);
 
             return position;
         }
