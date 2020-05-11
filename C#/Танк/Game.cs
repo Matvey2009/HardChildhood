@@ -8,7 +8,6 @@ namespace Танк
     {
         private ListUnit RedParty, BlueParty;
         private ListShot listShot;
-        Shot shot;
 
         //Старт Игры
         public void StartGame()
@@ -22,20 +21,16 @@ namespace Танк
             SW();
             //Sound();
 
-            shot = new Shot();
-            shot.position = new PointF(50, 50);
-            shot.target = new PointF(1000, 600);
-            shot.speed = 20;
+            listShot = new ListShot();
         }
 
         //Шаг Игры
         public void StepGame(Graphics g, Point cursor) 
         {
-            RedParty.DriweListUnit(g, cursor);
-            BlueParty.DriweListUnit(g, cursor);
+            RedParty.DriweListUnit(g, cursor, listShot);
+            BlueParty.DriweListUnit(g, cursor, listShot);
 
-            shot.DrawShot(g);
-
+            listShot.DrawListShot(g);
         }
 
         //Звук заставки
