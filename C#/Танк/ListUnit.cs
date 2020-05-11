@@ -32,11 +32,12 @@ namespace Танк
         }
 
         //Отрисовка лист танков
-        public void DriweListUnit(Graphics g, Point cursor)
+        public void DriweListUnit(Graphics g, Point cursor, ListShot listShot)
         {
             foreach (dynamic unit in listUnits)
             {
                 unit.DrawUnit(g, cursor);
+                listShot.newShot(unit);
             }
         }
 
