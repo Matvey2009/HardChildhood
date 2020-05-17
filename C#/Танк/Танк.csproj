@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aobject.cs" />
-    <Compile Include="Car.cs" />
+    <Compile Include="Object\Car.cs" />
     <Compile Include="FormTanks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,13 +56,13 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="IDrawn.cs" />
-    <Compile Include="ListShot.cs" />
-    <Compile Include="ListUnit.cs" />
+    <Compile Include="List\ListShot.cs" />
+    <Compile Include="List\ListUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shot.cs" />
-    <Compile Include="Tank.cs" />
-    <Compile Include="Unit.cs" />
+    <Compile Include="Object\Shot.cs" />
+    <Compile Include="Object\Tank.cs" />
+    <Compile Include="Object\Unit.cs" />
     <EmbeddedResource Include="FormTanks.resx">
       <DependentUpon>FormTanks.cs</DependentUpon>
     </EmbeddedResource>
