@@ -11,6 +11,14 @@ namespace Танк
         private List<object> listUnits = new List<object>();
         private byte count = 10;
 
+        /// <summary>
+        /// Команда
+        /// </summary>
+        public ListUnit(Color color, int x)
+        {
+            CreateListUnit(color, x);
+        }
+        
         //Создаём лист танков
         public List<object> CreateListUnit(Color color, int x)
         {
