@@ -48,8 +48,15 @@ namespace Танк
         //Старт-Стоп
         private void Form1_Click(object sender, EventArgs e)
         {
-            if (timer.Enabled == true) timer.Enabled = false;
-            else timer.Enabled = true;
+            timer.Enabled = !timer.Enabled;
+        }
+
+        // Двойной клик
+        private void FormTanks_DoubleClick(object sender, EventArgs e)
+        {
+            if (FormBorderStyle == FormBorderStyle.Sizable)
+                FormBorderStyle = FormBorderStyle.None;
+            else FormBorderStyle = FormBorderStyle.Sizable;
         }
     }
 }
