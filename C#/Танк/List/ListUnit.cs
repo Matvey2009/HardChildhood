@@ -11,29 +11,34 @@ namespace Танк
         private List<object> listUnits = new List<object>();
         private byte count = 10;
 
-        /// <summary>
-        /// Команда
-        /// </summary>
-        public ListUnit(Color color, int x)
+        /// <summary> Команда: Пустой <summary> \\\
+        public ListUnit()
         {
-            CreateListUnit(color, x);
+            Color color = Color.FromArgb(255, Color.FromArgb (random.Next(0XFFFFFF+1))); 
+            CreateListUnit(color, new Point(50, 50));
         }
-        
+
+        /// <summary> Команда: Цвет и Позиция <summary> \\\
+        public ListUnit(Color color, Point start)
+        {
+            CreateListUnit(color, start);
+        }
+
         //Создаём лист танков
-        public List<object> CreateListUnit(Color color, int x)
+        public List<object> CreateListUnit(Color color, Point start)
         {
             for (byte i = 1; i <= count; i++) 
             {
                 listUnits.Add(new Tank
                 {
                     color = color,
-                    position = StartPosition(x)
+                    position = StartPosition(start)
                 });
 
                 listUnits.Add(new Car
                 {
                     color = color,
-                    position = StartPosition(x)
+                    position = StartPosition(start)
                 });
             }
             return listUnits;
@@ -56,11 +61,11 @@ namespace Танк
         }
 
         //Стартовая позиция
-        private Point StartPosition(int x)
+        private Point StartPosition(Point start)
         {
             Point position = new Point();
-            position.X = window.Width * x / 100 + random.Next(-200, 200);
-            position.Y = random.Next(50, window.Height - 50);
+            position.X = window.Width * start.X / 100 + random.Next(-200, 200);
+            position.Y = window.Height * start.Y / 100 + random.Next(-200, 200);
 
             return position;
         }
