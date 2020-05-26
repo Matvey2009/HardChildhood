@@ -6,21 +6,15 @@ namespace Танк
     class Game
     {
         private List<ListUnit> ListParty;
-        private ListUnit RedParty, BlueParty;
         private ListShot listShot;
 
         //Старт Игры
         public void StartGame()
         {
             ListParty = new List<ListUnit>();
-
-            ListParty.Add(new ListUnit(Color.Red, 20));
-            ListParty.Add(new ListUnit(Color.Blue, 80));
-            ListParty.Add(new ListUnit(Color.Yellow, 30));
-            ListParty.Add(new ListUnit(Color.Green, 40));
-            ListParty.Add(new ListUnit(Color.Cyan, 50));
-            ListParty.Add(new ListUnit(Color.Orange, 60));
-
+            ListParty.Add(new ListUnit(Color.Red, new Point(30, 20)));
+            ListParty.Add(new ListUnit(Color.Blue, new Point(70, 80)));
+            ListParty.Add(new ListUnit());
             Sound.SW();
             //Sound();
 
