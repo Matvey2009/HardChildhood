@@ -14,8 +14,9 @@ namespace Танк
         /// <summary>
         /// Конструкор танка
         /// </summary>
-        public Tank()
+        public Tank(Color color)
         {
+            this.color = color;
             speed = 1;
             live = 50;
         }
