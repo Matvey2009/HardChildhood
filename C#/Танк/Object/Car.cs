@@ -12,8 +12,9 @@ namespace Танк
         /// <summary>
         /// Конструкор машинки
         /// </summary>
-        public Car()
+        public Car(Color color)
         {
+            this.color = color;
             speed = 2;
             live = 10;
         }
