@@ -9,7 +9,7 @@ namespace Танк
         private Size window = FormTanks.window;
         private Random random = new Random();
         private List<object> listUnits = new List<object>();
-        private byte count = 10;
+        private byte count = 7;
 
         /// <summary> Команда: Пустой <summary> \\\
         public ListUnit()
@@ -27,21 +27,20 @@ namespace Танк
         //Создаём лист танков
         public List<object> CreateListUnit(Color color, Point start)
         {
-            for (byte i = 1; i <= count; i++) 
-            {
-                listUnits.Add(new Tank
-                {
-                    color = color,
-                    position = StartPosition(start)
-                });
+            for (byte i = 1; i <= 100; i++)
+                NewUnit(new Car(color), start);
 
-                listUnits.Add(new Car
-                {
-                    color = color,
-                    position = StartPosition(start)
-                });
-            }
+            for (byte i = 1; i <= 0; i++)
+                NewUnit(new Tank(color), start);
+
             return listUnits;
+        }
+
+        //Добовлем unita в список
+        private void NewUnit(dynamic unit, Point start)
+        {
+            listUnits.Add(unit);
+            unit.position = StartPosition(start);
         }
 
         //Отрисовка лист танков
