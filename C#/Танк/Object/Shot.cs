@@ -11,8 +11,14 @@ namespace Танк
         /// <summary>
         /// Конструкор снаряда
         /// </summary>
-        public Shot()
+        public Shot(dynamic unit)
         {
+            color = unit.color;
+            pen = new Pen(color, 3);
+            position = unit.position;
+            target = unit.target;
+            vector = (float)Math.Atan2(unit.target.Y - unit.position.Y,
+                unit.target.X - unit.position.X);
             speed = 16;
         }
 
@@ -21,7 +27,7 @@ namespace Танк
         {
             position0 = position;
             position = Position();
-            pen = new Pen(color, 3);
+            speed *= 0.98f;
             g.DrawLine(pen, position, position0);
         }
     }
