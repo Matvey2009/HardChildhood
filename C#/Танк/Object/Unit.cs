@@ -8,7 +8,7 @@ namespace Танк
         private static uint ID;
 
         public uint id = ++ID;//Нопер Unit
-        public float live;//Жизнь
+        public float live { get; set; }//Жизнь
         private Font font = new Font("Areal", 10, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Yellow);
         private Pen pen = new Pen(Color.Red, 3);
@@ -40,7 +40,7 @@ namespace Танк
             //Текущий угол
             if (Math.Abs(vector - angle) > speed)
             {
-                if ((vector < angle && (angle - vector) < 1) ^ (angle - vector) < 180)
+                if ((vector < angle && (angle - vector) < 180) ^ (angle - vector) < 180)
                     vector = (vector - speed + 360) % 360;
                 else
                     vector = (vector + speed) % 360;
