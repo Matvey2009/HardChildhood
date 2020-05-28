@@ -30,6 +30,19 @@ namespace Танк
             CreateListUnit(color, start, unit, unit);
         }
 
+        /// <summary> Цвет и Позиция и Танки и Машинки </summary>
+        public ListUnit(Color color, Point start, byte tank, byte car)
+        {
+            CreateListUnit(color, start, tank, car);
+        }
+
+        /// <summary>Позиция танков и машинок о/summary>
+        public ListUnit(Point start, byte tank, byte car)
+        {
+            Color color = Color.FromArgb(255, Color.FromArgb(random.Next(0xFFFFFF + 1)));
+            CreateListUnit(color, start, tank, car);
+        }
+
         //Создаём лист танков
         public List<object> CreateListUnit
             (Color color, Point start, byte tank, byte car)
@@ -58,7 +71,7 @@ namespace Танк
                 unit.DrawUnit(g, cursor);
 
                 unit.timeShot++;
-                if (unit.timeShot > 120)
+                if (unit.timeShot > 10)
                 {
                     listShot.newShot(unit);
                     unit.timeShot = 0;
