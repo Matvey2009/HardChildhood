@@ -40,7 +40,7 @@ namespace Танк
             //Текущий угол
             if (Math.Abs(vector - angle) > speed)
             {
-                if ((vector < angle && (angle - vector) < 180) ^ (angle - vector) < 180)
+                if ((vector < angle && (angle - vector) < 1) ^ (angle - vector) < 180)
                     vector = (vector - speed + 360) % 360;
                 else
                     vector = (vector + speed) % 360;
