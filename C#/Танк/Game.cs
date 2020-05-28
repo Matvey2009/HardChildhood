@@ -15,6 +15,7 @@ namespace Танк
             ListParty.Add(new ListUnit(Color.Red, new Point(30, 20)));
             ListParty.Add(new ListUnit(Color.Blue, new Point(70, 80)));
             ListParty.Add(new ListUnit());
+            ListParty.Add(new ListUnit(Color.Yellow, new Point(70, 20), 10));
             //Sound.SW();
             //Sound();
 
@@ -29,7 +30,5 @@ namespace Танк
 
             listShot.DrawListShot(g);
         }
-
-        
     }
 }
