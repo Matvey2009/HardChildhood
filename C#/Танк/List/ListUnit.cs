@@ -8,7 +8,7 @@ namespace Танк
     {
         private Size window = FormTanks.window;
         private Random random = new Random();
-        private List<object> listUnits = new List<object>();
+        public List<object> listUnits = new List<object>();
         private byte count = 7;
 
         /// <summary> Команда: Пустой <summary> \\\
