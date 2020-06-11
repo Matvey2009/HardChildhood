@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
     <Compile Include="Aobject.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="FormTanks.cs">
