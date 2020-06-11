@@ -25,9 +25,7 @@ namespace Танк
         public void DrawUnit(Graphics g, Point cursor)
         {
             target = cursor;
-            vector = Vector(vector, speed);
             vectorTower = Vector(vectorTower, speed*2);
-            PositionUnit();
 
             #region *** Отрисовка по частям ***
             //Корпус
