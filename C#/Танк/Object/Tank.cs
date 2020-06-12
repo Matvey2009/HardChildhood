@@ -19,6 +19,7 @@ namespace Танк
             this.color = color;
             speed = 1;
             live = 50;
+            act = Act.WAIT;
         }
 
         //Отрисовка танка
