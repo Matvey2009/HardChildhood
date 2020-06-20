@@ -7,8 +7,8 @@ namespace Танк
     {
         private static uint ID;
 
-        public uint id = ++ID;//Нопер Unit
-        public Act act;//Действие юнита
+        public uint id = ++ID; //Нопер Unit
+        public Act act; //Действие юнита
 
         public float live { get; set; }
         private Font font = new Font("Areal", 10, FontStyle.Bold, GraphicsUnit.Point);
