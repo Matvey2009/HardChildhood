@@ -56,7 +56,7 @@ namespace Танк
                 unit.act = Act.DEAD;
 
             //Поиск цели
-            FindTarget(unit);
+            unit.target = FindTarget(unit);
 
         }
 
@@ -80,12 +80,16 @@ namespace Танк
         }
 
         //Поиск цели
-        private float FindTarget(dynamic unit)
+        private PointF FindTarget(dynamic unit)
         {
+            PointF target = PointF.Empty;
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
-                    Func2D.Delta(unit.position, findUnit.position);
-            return 0;
+                {
+                    if (unit.color != findUnit.color && findUnit.act != Act.DEAD)
+                        target = Func2D.Delta(unit.position, findUnit.position); //!ИСПРАВИТЬ!\\
+                }
+            return target;
         }
     }
 }
