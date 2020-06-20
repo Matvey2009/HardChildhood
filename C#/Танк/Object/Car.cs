@@ -20,10 +20,10 @@ namespace Танк
             act = Act.WAIT;
         }
 
-        //Отрисовка танка
+        //Отрисовка машинки
         public void DrawUnit (Graphics g, Point cursor)
         {
-            target = cursor;
+            //target = cursor;
 
             //Машина
             g.TranslateTransform(position.X, position.Y);
