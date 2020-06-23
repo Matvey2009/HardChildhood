@@ -21,10 +21,8 @@ namespace Танк
         }
 
         //Отрисовка машинки
-        public void DrawUnit (Graphics g, Point cursor)
+        public void DrawUnit (Graphics g)
         {
-            //target = cursor;
-
             //Машина
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
