@@ -9,7 +9,7 @@ namespace Танк
         private Size window = FormTanks.window;
         private Random random = new Random();
         public List<object> listUnits = new List<object>();
-        private byte count = 7;
+        private byte count = 3;
 
         /// <summary> Команда: Пустой <summary> \\\
         public ListUnit()
@@ -64,11 +64,11 @@ namespace Танк
         }
 
         //Отрисовка лист танков
-        public void DriweListUnit(Graphics g, Point cursor, ListShot listShot)
+        public void DriweListUnit(Graphics g, ListShot listShot)
         {
             foreach (dynamic unit in listUnits)
             {
-                unit.DrawUnit(g, cursor);
+                unit.DrawUnit(g);
 
                 unit.timeShot++;
                 if (unit.timeShot > 10)
