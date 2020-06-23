@@ -25,7 +25,6 @@ namespace Танк
                 switch(unit.act)
                 {
                     case Act.WAIT:
-                        goto case Act.FIRE;
                         ActWAIT(unit);
                         break;
 
@@ -57,19 +56,20 @@ namespace Танк
 
             //Поиск цели
             unit.target = FindTarget(unit);
-
+            unit.act = Act.FIRE;
         }
 
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
+            //Unit ищет цель
 
         }
 
         //Процес зближение
         private void ActMOVE(dynamic unit)
         {
-
+            //Tанк едет пока растояние сокрота 
         }
 
         //Процес отаки
@@ -82,14 +82,21 @@ namespace Танк
         //Поиск цели
         private PointF FindTarget(dynamic unit)
         {
-            PointF target = PointF.Empty;
+            float findDelta = 1000, minDelta = 1000;
+
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
                 {
                     if (unit.color != findUnit.color && findUnit.act != Act.DEAD)
-                        target = Func2D.Delta(unit.position, findUnit.position); //!ИСПРАВИТЬ!\\
+                        findDelta = Func2D.Delta(unit.position, findUnit.position);
+
+                    if (findDelta < minDelta)
+                    {
+                        minDelta = findDelta;
+                        unit.target = findUnit.position;
+                    }    
                 }
-            return target;
+            return unit.target;
         }
     }
 }
