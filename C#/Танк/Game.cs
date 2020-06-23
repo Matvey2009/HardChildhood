@@ -15,9 +15,9 @@ namespace Танк
             ListParty = new List<ListUnit>();
             ListParty.Add(new ListUnit());
             ListParty.Add(new ListUnit(Color.Red, new Point(10, 20)));
-            ListParty.Add(new ListUnit(Color.Blue, new Point(90, 20), 20));
-            ListParty.Add(new ListUnit(new Point(90, 80), 10, 10));
-            ListParty.Add(new ListUnit(Color.Yellow, new Point(10, 80), 10));
+            ListParty.Add(new ListUnit(Color.Blue, new Point(90, 20), 5));
+            ListParty.Add(new ListUnit(new Point(90, 80), 3, 2));
+            ListParty.Add(new ListUnit(Color.Yellow, new Point(10, 80), 5));
             actoin = new Action();
 
             //Sound.SW();
@@ -27,12 +27,12 @@ namespace Танк
         }
 
         //Шаг Игры
-        public void StepGame(Graphics g, Point cursor) 
+        public void StepGame(Graphics g) 
         {
             actoin.ActUnit(ListParty, listShot);
 
             foreach (ListUnit party in ListParty)
-                party.DriweListUnit(g, cursor, listShot);
+                party.DriweListUnit(g, listShot);
 
             listShot.DrawListShot(g);
         }
