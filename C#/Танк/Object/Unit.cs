@@ -13,7 +13,7 @@ namespace Танк
         public float live { get; set; }
         private Font font = new Font("Areal", 10, FontStyle.Bold, GraphicsUnit.Point);
         private SolidBrush color = new SolidBrush(Color.Yellow);
-        private Pen pen = new Pen(Color.Red, 3);
+        private Pen pen = new Pen(Color.Green, 3);
         private float angle;
         public byte timeShot;
 
@@ -22,7 +22,7 @@ namespace Танк
         {
             //Наименование
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(act.ToString(), font, color, -7 , -40);
+            g.DrawString(target.ToString(), font, color, -7 , -40);
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
