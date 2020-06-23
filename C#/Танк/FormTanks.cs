@@ -36,7 +36,7 @@ namespace Танк
             g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             cursor = PointToClient(Cursor.Position);
-            game.StepGame(g, cursor);
+            game.StepGame(g);
         }
 
         //Таймер
