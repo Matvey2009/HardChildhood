@@ -22,12 +22,17 @@ namespace Танк
             speed = 16;
         }
 
-        //Рисунок пульки
-        public void DrawShot(Graphics g)
+        //Расчёт полёта снаряда
+        public void MoveShot()
         {
             position0 = position;
             position = Position();
             speed *= 0.98f;
+        }
+
+        //Рисунок пульки
+        public void DrawShot(Graphics g)
+        {
             g.DrawLine(pen, position, position0);
         }
     }
