@@ -16,6 +16,12 @@ namespace Танк
             await Task.Run(() => Console.Beep(50, 50));
         }
 
+        //Удалене функции
+        public void RemoveShot(Shot shot)
+        {
+            listShot.Remove(shot);
+        }
+
         //Отрисовка пульки
         public void DrawListShot(Graphics g)
         {
