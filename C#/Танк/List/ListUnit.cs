@@ -64,19 +64,10 @@ namespace Танк
         }
 
         //Отрисовка лист танков
-        public void DriweListUnit(Graphics g, ListShot listShot)
+        public void DriweListUnit(Graphics g)
         {
             foreach (dynamic unit in listUnits)
-            {
                 unit.DrawUnit(g);
-
-                unit.timeShot++;
-                if (unit.timeShot > 10)
-                {
-                    listShot.newShot(unit);
-                    unit.timeShot = 0;
-                }
-            }
         }
 
         //Стартовая позиция
