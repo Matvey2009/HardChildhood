@@ -36,7 +36,7 @@ namespace Танк
             shooting.ActShot(ListParty, listShot);
 
             foreach (ListUnit party in ListParty)
-                party.DriweListUnit(g, listShot);
+                party.DriweListUnit(g);
 
             listShot.DrawListShot(g);
         }
