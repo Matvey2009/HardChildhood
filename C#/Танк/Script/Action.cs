@@ -7,11 +7,13 @@ namespace Танк
     class Action
     {
         private List<ListUnit> ListParty;
+        private ListShot listShot;
 
         //Обход всех юнитов
         public void ActUnit(List<ListUnit> ListParty, ListShot listShot)
         {
             this.ListParty = ListParty;
+            this.listShot = listShot;
 
             foreach (ListUnit party in ListParty)
                 foreach (dynamic unit in party.listUnits)
@@ -66,17 +68,24 @@ namespace Танк
 
         }
 
-        //Процес зближение
+        //Процес сближение
         private void ActMOVE(dynamic unit)
         {
             //Tанк едет пока растояние сокрота 
         }
 
-        //Процес отаки
+        //Процес атаки
         private void ActFIRE(dynamic unit)
         {
             unit.vector = unit.Vector(unit.vector, unit.speed);
             unit.PositionUnit();
+
+            unit.timeShot++;
+            if (unit.timeShot > 10)
+            {                         
+                listShot.newShot(unit);
+                unit.timeShot = 0;
+            }
         }
 
         //Поиск цели
