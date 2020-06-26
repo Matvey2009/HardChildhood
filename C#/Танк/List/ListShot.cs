@@ -8,6 +8,7 @@ namespace Танк
     class ListShot
     {
         public List<Shot> listShot = new List<Shot>();
+        public List<Bang> listBang = new List<Bang>();
 
         //Добавление выстрела
         async public void newShot(dynamic unit)
@@ -16,9 +17,11 @@ namespace Танк
             await Task.Run(() => Console.Beep(50, 50));
         }
 
-        //Удалене функции
-        public void RemoveShot(Shot shot)
+        //Удалене функции 
+        async public void RemoveShot(Shot shot)
         {
+            await Task.Run(() => Console.Beep(100, 100));
+                listBang.Add(new Bang(shot.position));
             listShot.Remove(shot);
         }
 
@@ -26,9 +29,10 @@ namespace Танк
         public void DrawListShot(Graphics g)
         {
             foreach (Shot shot in listShot)
-            {
                 shot.DrawShot(g);
-            }
+
+            foreach (Bang bang in listBang)
+                bang.DrawBang(g);
         }
     }
 }
