@@ -5,6 +5,19 @@ namespace Танк
 {
     class Sound
     {
+        //Звук выстрела
+
+        async public static void Shot()
+        {
+            await Task.Run(() => Console.Beep(400, 50));
+        }
+
+        //Звук Взрыва
+        async public static void Bang()
+        {
+            await Task.Run(() => Console.Beep(100, 100));
+        }
+
         //Звук заставки
         async public static void SW()
         {
