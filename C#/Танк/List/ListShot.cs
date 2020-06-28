@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Threading.Tasks;
 
 namespace Танк
 {
@@ -9,20 +7,32 @@ namespace Танк
     {
         public List<Shot> listShot = new List<Shot>();
         public List<Bang> listBang = new List<Bang>();
+        public List<Crator> listCrator = new List<Crator>();
 
         //Добавление выстрела
-        async public void newShot(dynamic unit)
+        public void newShot(dynamic unit)
         {
             listShot.Add(new Shot(unit));
-            await Task.Run(() => Console.Beep(50, 50));
         }
 
         //Удалене функции 
-        async public void RemoveShot(Shot shot)
+        public void RemoveShot(Shot shot)
         {
-            await Task.Run(() => Console.Beep(100, 100));
-                listBang.Add(new Bang(shot.position));
+            listBang.Add(new Bang(shot.position));
             listShot.Remove(shot);
+        }
+
+        public void RemoveBang(Bang bang)
+        {
+            listCrator.Add(new Crator(bang.position));
+            listBang.Remove(bang);
+        }
+
+        //Отрисовка кратора
+        public void DrawListCrator(Graphics g)
+        {
+            foreach (Crator crator in listCrator)
+                crator.DrawCrator(g);
         }
 
         //Отрисовка пульки
