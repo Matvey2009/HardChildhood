@@ -8,11 +8,12 @@ namespace Танк
         public byte time;
 
         /// <summary>
-        /// 
+        /// Взрыв
         /// </summary>
         public Bang(PointF position)
         {
             this.position = position;
+            Sound.Bang();
         }
 
         public void DrawBang(Graphics g)
