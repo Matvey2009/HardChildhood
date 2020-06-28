@@ -35,6 +35,8 @@ namespace Танк
             actoin.ActUnit(ListParty, listShot);
             shooting.ActShot(ListParty, listShot);
 
+            listShot.DrawListCrator(g);
+
             foreach (ListUnit party in ListParty)
                 party.DriweListUnit(g);
 
