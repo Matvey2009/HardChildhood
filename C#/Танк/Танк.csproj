@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Act.cs" />
     <Compile Include="Object\Bang.cs" />
+    <Compile Include="Object\Crator.cs" />
     <Compile Include="Script\Action.cs" />
     <Compile Include="Aobject.cs" />
     <Compile Include="Object\Car.cs" />
