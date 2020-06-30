@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
-using Game2D;
 
 namespace Танк
 {
@@ -24,7 +23,7 @@ namespace Танк
         private void Logic(dynamic unit)
         {
             {
-                switch(unit.act)
+                switch (unit.act)
                 {
                     case Act.WAIT:
                         ActWAIT(unit);
@@ -48,24 +47,24 @@ namespace Танк
                 }
             }
         }
-
-        //Процес ожидание
         private void ActWAIT(dynamic unit)
         {
             //Есле танк мёртв
             if (unit.live <= 0)
-                unit.act = Act.DEAD;
+                KillUnit(unit);
 
             //Поиск цели
-            unit.target = FindTarget(unit);
-            unit.act = Act.FIRE;
+            else
+            {
+                unit.act = Act.FIRE;
+                unit.target = FindTarget(unit);
+            }
         }
 
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
             //Unit ищет цель
-
         }
 
         //Процес сближение
@@ -81,23 +80,24 @@ namespace Танк
             unit.PositionUnit();
 
             unit.timeShot++;
-            if (unit.timeShot > 10)
+            if (unit.timeShot > 120)
             {                         
                 listShot.newShot(unit);
                 unit.timeShot = 0;
+                unit.act = Act.WAIT;
             }
         }
 
         //Поиск цели
         private PointF FindTarget(dynamic unit)
         {
-            float findDelta = 1000, minDelta = 1000;
+            float findDelta = unit.vision, minDelta = unit.vision;
 
             foreach (ListUnit party in ListParty)
                 foreach (dynamic findUnit in party.listUnits)
                 {
                     if (unit.color != findUnit.color && findUnit.act != Act.DEAD)
-                        findDelta = Func2D.Delta(unit.position, findUnit.position);
+                        findDelta = unit.Delta(unit.position, findUnit.position);
 
                     if (findDelta < minDelta)
                     {
@@ -106,6 +106,15 @@ namespace Танк
                     }    
                 }
             return unit.target;
+        }
+
+        //Смерть танка
+        public void KillUnit(dynamic unit)
+        {
+            unit.act = Act.DEAD;
+            unit.speed = 0.0f;
+            unit.live = 0.0f;
+            unit.color = Color.Black;
         }
     }
 }
