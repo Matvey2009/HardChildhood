@@ -28,6 +28,12 @@ namespace Танк
             listBang.Remove(bang);
         }
 
+        //Удалене кратора 
+        public void RemoveCrator(Crator crator)
+        {
+            listCrator.Remove(crator);
+        }
+
         //Отрисовка кратора
         public void DrawListCrator(Graphics g)
         {
