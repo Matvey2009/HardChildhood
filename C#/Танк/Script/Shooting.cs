@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Танк.Script
 {
@@ -6,7 +7,8 @@ namespace Танк.Script
     {
         private Shot shot;
         private Bang bang;
-        private Crator crater;
+        private Crator crator;
+        private float delta;
 
         //Расчёт стрельбы
         public void ActShot(List<ListUnit> ListParty, ListShot listShot)
@@ -17,9 +19,22 @@ namespace Танк.Script
                 shot = listShot.listShot[i];
                 shot.MoveShot();
 
-                if (shot.speed < 5)
+                if (shot.Delta(shot.position, shot.target) < 16 || shot.speed < 5)
+                {
+                    //Расчёт Дамажа
+                    foreach (ListUnit party in ListParty)
+                        foreach (dynamic unit in party.listUnits)
+                        {
+                            if (unit.act != Act.DEAD)
+                            {
+                                delta = unit.Delta(unit.position, shot.position);
+                                if (delta < 32)
+                                    unit.live -= 100 / delta;
+                            }
+                        }
+
                     listShot.RemoveShot(shot);
-         
+                }
             }
 
             //Расчёт взрывов
@@ -27,11 +42,20 @@ namespace Танк.Script
             {
                 bang = listShot.listBang[i];
                 if (bang.time > 96)
-                    //_-_-_-_-_ Расчёт дамагА _-_-_-_-_\\
                     listShot.RemoveBang(bang);
                 else
-                    bang.time += 1;
-            }    
+                    bang.time += 4;
+            }
+
+            //Расчёт краторов
+            for (int i = 0; i < listShot.listCrator.Count; i++)
+            {
+                crator = listShot.listCrator[i];
+                if (crator.time > 300)
+                    listShot.RemoveCrator(crator);
+                else
+                    crator.time++;
+            }
         }
     }
 }
