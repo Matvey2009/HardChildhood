@@ -19,6 +19,7 @@ namespace Танк
             this.color = color;
             speed = 1;
             live = 50;
+            vision = 1024;
             act = Act.WAIT;
         }
 
