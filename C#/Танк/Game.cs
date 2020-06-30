@@ -15,11 +15,8 @@ namespace Танк
         public void StartGame()
         {
             ListParty = new List<ListUnit>();
-            ListParty.Add(new ListUnit());
-            ListParty.Add(new ListUnit(Color.Red, new Point(10, 20)));
-            ListParty.Add(new ListUnit(Color.Blue, new Point(90, 20), 5));
-            ListParty.Add(new ListUnit(new Point(90, 80), 3, 2));
-            ListParty.Add(new ListUnit(Color.Yellow, new Point(10, 80), 5));
+            ListParty.Add(new ListUnit(Color.Red, new Point(25, 20), 10));
+            ListParty.Add(new ListUnit(Color.Blue, new Point(75, 80), 10));
 
             //Sound.SW();
             //Sound();
