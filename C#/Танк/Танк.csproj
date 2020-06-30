@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Game2D">
-      <HintPath>bin\Release\Game2D.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Act.cs" />
+    <Compile Include="Structure\Act.cs" />
     <Compile Include="Object\Bang.cs" />
     <Compile Include="Object\Crator.cs" />
     <Compile Include="Script\Action.cs" />
-    <Compile Include="Aobject.cs" />
+    <Compile Include="Structure\Aobject.cs" />
     <Compile Include="Object\Car.cs" />
     <Compile Include="FormTanks.cs">
       <SubType>Form</SubType>
@@ -62,14 +59,14 @@
       <DependentUpon>FormTanks.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
-    <Compile Include="IDrawn.cs" />
+    <Compile Include="Structure\IDrawn.cs" />
     <Compile Include="List\ListShot.cs" />
     <Compile Include="List\ListUnit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Object\Shot.cs" />
     <Compile Include="Object\Tank.cs" />
-    <Compile Include="Object\Unit.cs" />
+    <Compile Include="Structure\Unit.cs" />
     <Compile Include="Resources\Sound.cs" />
     <Compile Include="Script\Shooting.cs" />
     <EmbeddedResource Include="FormTanks.resx">
