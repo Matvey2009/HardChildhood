@@ -25,7 +25,7 @@ namespace Танк
         {
             //Наименование
             g.TranslateTransform(position.X, position.Y);
-            g.DrawString(live.ToString(), font, color, -7 , -40);
+            g.DrawString(act.ToString(), font, color, -7 , -40);
             g.ResetTransform();
             //Полоска жизни
             g.TranslateTransform(position.X, position.Y);
