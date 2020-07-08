@@ -21,6 +21,7 @@ namespace Танк
             live = 50;
             vision = 512;
             act = Act.WAIT;
+            timeShot = 60;
         }
 
         //Отрисовка танка
