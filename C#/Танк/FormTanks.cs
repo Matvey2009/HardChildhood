@@ -58,5 +58,13 @@ namespace Танк
                 FormBorderStyle = FormBorderStyle.None;
             else FormBorderStyle = FormBorderStyle.Sizable;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            window = ClientSize;
+            game = new Game();
+            game.StartGame();
+            Refresh();
+        }
     }
 }
