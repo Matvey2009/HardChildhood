@@ -18,7 +18,8 @@ namespace Танк
 
             foreach (ListUnit party in ListParty)
                 foreach (dynamic unit in party.listUnits)
-                    if (unit.act != Act.DEAD) Logic(unit);
+                    if (unit.act != Act.DEAD)
+                        Logic(unit);
         }
 
         //Логика действий
@@ -53,13 +54,13 @@ namespace Танк
         {
             //Есле танк мёртв
             if (unit.live <= 0)
-                KillUnit(unit);
+                ActDead(unit);
 
             //Поиск цели
             else
             {
                 //Поиск ближайщего танка
-                float findDelta = unit.vision, minDelta = unit.vision;
+                float findDelta = unit.vision*2, minDelta = unit.vision*2;
                 foreach (ListUnit party in ListParty)
                     foreach (dynamic findUnit in party.listUnits)
                     {
@@ -75,20 +76,18 @@ namespace Танк
 
                 //Проверка на атаку
                 if (minDelta < unit.vision)
-                {
                     unit.act = Act.FIRE;
-                }
 
                 //Проверка на движение
                 else if (minDelta < unit.vision*2)
-
                     unit.act = Act.MOVE;
 
                 //Поиск врага
                 else
                 {
-                    unit.target.X = unit.position.X + random.Next(-128, 128);
-                    unit.target.Y = unit.position.Y + random.Next(-128, 128);
+                    unit.target = new PointF(
+                        unit.position.X + random.Next(-128, 128),
+                        unit.position.Y + random.Next(-128, 128));
                     unit.act = Act.FIND;
                 }
             }
@@ -97,7 +96,7 @@ namespace Танк
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
-            if (unit.Delta(unit.position, unit.target) > unit.speed)
+            if (unit.Delta(unit.position, unit.target) > unit.speed*16)
             {
                 unit.vector = unit.Vector(unit.vector, unit.speed);
                 unit.PositionUnit();
@@ -121,12 +120,13 @@ namespace Танк
         //Процес атаки
         private void ActFIRE(dynamic unit)
         {
-            unit.vector = unit.Vector(unit.vector, unit.speed);
-            unit.PositionUnit();
-
-            unit.timeShot++;
-            if (unit.timeShot > 120)
-            {                         
+            if (unit.timeShot < 120)
+            {
+                unit.timeShot++;
+                unit.vector = unit.Vector(unit.vector, unit.speed);
+            }
+            else
+            {
                 listShot.newShot(unit);
                 unit.timeShot = 0;
                 unit.act = Act.WAIT;
@@ -134,7 +134,7 @@ namespace Танк
         }
 
         //Смерть танка
-        public void KillUnit(dynamic unit)
+        public void ActDead(dynamic unit)
         {
             unit.act = Act.DEAD;
             unit.speed = 0.0f;
