@@ -96,7 +96,7 @@ namespace Танк
         //Процес поиска
         private void ActFIND(dynamic unit)
         {
-            if (unit.Delta(unit.position, unit.target) > unit.speed*16)
+            if (unit.Delta(unit.position, unit.target) > unit.speed*32)
             {
                 unit.vector = unit.Vector(unit.vector, unit.speed);
                 unit.PositionUnit();
