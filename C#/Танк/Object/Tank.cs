@@ -18,7 +18,7 @@ namespace Танк
         {
             this.color = color;
             speed = 1;
-            live = 50;
+            live = 40;
             vision = 512;
             act = Act.WAIT;
             timeShot = 60;
@@ -28,6 +28,7 @@ namespace Танк
         public void DrawUnit(Graphics g)
         {
             vectorTower = Vector(vectorTower, speed*2);
+            centre = live * 40 / 40 - 20;
 
             #region *** Отрисовка по частям ***
             //Корпус
