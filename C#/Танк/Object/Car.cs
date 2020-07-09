@@ -25,6 +25,7 @@ namespace Танк
         //Отрисовка машинки
         public void DrawUnit (Graphics g)
         {
+            centre = live * 40 / 10 - 20;
             //Машина
             g.TranslateTransform(position.X, position.Y);
             g.RotateTransform(vector);
