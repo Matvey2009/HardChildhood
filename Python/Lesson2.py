@@ -42,7 +42,10 @@ print(7//2)
 print(7%2)
 print("")
 
-print(5**2)
+print(5**3)
+print("")
+
+print(25**)
 print("")
 
 x = 10
@@ -67,7 +70,9 @@ x16 = 0x0a
 print(x2, x8, x16)
 print("")
 
-x = input("Как тебя завут\n")
-print("Очень прятно " + x)
+x, y, z, = 0
+x = y = z = 1
+x, y = y, x
+print("")
 
 input()
