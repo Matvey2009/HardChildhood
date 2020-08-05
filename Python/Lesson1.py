@@ -10,6 +10,9 @@ if x > 0:
 x = "выаяф"
 print("Число = " + x)
 
+x = input("Как тебя завут\n")
+print("Очень прятно " + x)
+
 input()
 
 # Запуск с CMD D:\Documents\Programs\HardChildhood\Python> "C:\Program Files (x86)\Python38-32\python.exe" Leson1.py
