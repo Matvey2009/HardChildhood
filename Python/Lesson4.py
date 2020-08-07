@@ -47,12 +47,12 @@ print(x)
 random.shuffle(x)
 print(x)
 while True:
-    #print("Раном от 0 до 1", random.random())
-    #print("Раном от 100 до 200 -", random.randint(100,200))
-    #print("Раном-Range до 10 -", random.randrange(10))
-    #print("Раном от 1000 до 2000 -", random.randrange(1000, 2000))
-    #print("Раном от 90 до 180 c шогом 3-", random.randrange(90, 180, 3))
-    #print("Раном из списка", random.choice(x))
+    print("Раном от 0 до 1", random.random())
+    print("Раном от 100 до 200 -", random.randint(100,200))
+    print("Раном-Range до 10 -", random.randrange(10))
+    print("Раном от 1000 до 2000 -", random.randrange(1000, 2000))
+    print("Раном от 90 до 180 c шогом 3-", random.randrange(90, 180, 3))
+    print("Раном из списка", random.choice(x))
     y = input("Выйти - 0|Продолжить - 1")
     if y == "0":
         break
