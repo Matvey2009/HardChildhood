@@ -6,6 +6,15 @@ print("Здравствуйте, это игра 'Больше-меньше' с�
 
 Bot = random.randrange(0, 1000)
 while True:
+    print("      _ _             _ _      ")
+    print("     |   |           |   |     ") 
+    print("     |_ _|           |_ _|     ") 
+    print("                               ") 
+    print("  _ _                     _ _  ") 
+    print(" |   |_ _ _ _ _ _ _ _ _ _|   | ") 
+    print(" |_                         _| ") 
+    print("   | _ _ _ _ _ _ _ _ _ _ _ |   ") 
+    print("                               ") 
     Player = int(input("Ваше число\n"))
 
     if Bot == Player:
