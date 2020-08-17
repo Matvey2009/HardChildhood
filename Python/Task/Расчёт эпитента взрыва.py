@@ -2,6 +2,16 @@
 
 import math
 
+    print("      _ _             _ _      ")
+    print("     |   |           |   |     ") 
+    print("     |_ _|           |_ _|     ") 
+    print("                               ") 
+    print("  _ _                     _ _  ") 
+    print(" |   |_ _ _ _ _ _ _ _ _ _|   | ") 
+    print(" |_                         _| ") 
+    print("   | _ _ _ _ _ _ _ _ _ _ _ |   ") 
+    print("                               ") 
+
 x2 = int(input("Ваши кординаты по x - "))
 y2 = int(input("Ваши кординаты по у - "))
 
