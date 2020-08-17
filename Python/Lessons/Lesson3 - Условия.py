@@ -33,4 +33,5 @@ if x > 0:
     print("Я тут")
 
 
+
 input()
