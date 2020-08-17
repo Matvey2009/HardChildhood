@@ -11,6 +11,17 @@ Draw = 0
 Loss = 0
 
 while True:
+
+    print("      _ _             _ _      ")
+    print("     |   |           |   |     ") 
+    print("     |_ _|           |_ _|     ") 
+    print("                               ") 
+    print("  _ _                     _ _  ") 
+    print(" |   |_ _ _ _ _ _ _ _ _ _|   | ") 
+    print(" |_                         _| ") 
+    print("   | _ _ _ _ _ _ _ _ _ _ _ |   ") 
+    print("                               ") 
+
     print("1 - камень, 2 - ножницы, 3 - бумага")
     Player = int(input("Ведите число\n"))
     os.system("cls||clear")
