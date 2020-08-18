@@ -32,6 +32,7 @@ if 5 < x < 25:
 if x > 0:
     print("Я тут")
 
-
+print(all([1, 125, "x", "abc", "True", 2 > 1]))
+print(any([0, 0, "", "", "", 0 > 1]))
 
 input()
