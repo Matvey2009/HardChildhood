@@ -37,5 +37,8 @@ print("Bool любого числа", bool(-125))
 print("Bool числа 0", bool(0))
 print("Bool любого симвала", bool("-125"))
 print("Bool пустоты", bool(""))
+print("")
+
+help(str.split)
 
 input()
