@@ -1,6 +1,6 @@
 # Урок № 15 по Python - файлы
 
-# r (Read) чтение, w (Write) запись(создание), a (Append) дозапись, b (Binary) бинарник + w / r
+## r (Read) чтение, w (Write) запись(создание), a (Append) дозапись, b (Binary) бинарник + w / r
 file = open("Test.txt", "w")
 file.write("hello world")
 file.close()
@@ -12,7 +12,7 @@ with open("Test.txt", "a") as myFile:
     myFile.write("\nGood bye, World")
     print("\nЗапись через print", file = myFile)
 
-# readline() - чтение строки (по-умолчанию), read() - все строки в одну, readlines() - все строки в список строк
+## readline() - чтение строки (по-умолчанию), read() - все строки в одну, readlines() - все строки в список строк
 print(" -= чтение файла readline (по умолчанию) в цикле =-")
 with open("Test.txt", "r") as myFile:
     for i in myFile:
@@ -58,29 +58,29 @@ print()
 
 import os
 
-# создаем папку по относительному пути (в этом же месте), абсолютный путь ("c://Folder1/Folder2/NewFolder")
+## создаем папку по относительному пути (в этом же месте), абсолютный путь ("c://Folder1/Folder2/NewFolder")
 os.mkdir("NewFolder")
 
 input()
-# удаление папки
+## удаление папки
 os.rmdir("NewFolder")
 
-# переименование файла
+## переименование файла
 os.rename("Test.txt", "Test-2.txt")
 
 input()
-# и обратно
+## и обратно
 os.rename("Test-2.txt", "Test.txt")
 
-# текущая рабочая директория
+## текущая рабочая директория
 print(os.getcwd())
 print()
 
-# список файлов и директорий в папке
+## список файлов и директорий в папке
 print(os.listdir(path="."))
 print()
 
-# удаляем файл
+## удаляем файл
 os.remove("Test.txt")
 
 input()
