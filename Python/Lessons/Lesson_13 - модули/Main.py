@@ -22,10 +22,10 @@ plus(3, 2)
 
 m(3, 2)
 
-#from random import randrange
-from random import randrange as r
+from random import randrange
+#from random import randrange as r
 
-#print("рандомное число", randrange(10))
-print("рандомное число", r(10))
+print("рандомное число", randrange(10))
+#print("рандомное число", r(10))
 
 input()
