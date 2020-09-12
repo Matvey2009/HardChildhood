@@ -16,7 +16,7 @@ class Tank():
     
     @staticmethod
     def NoObject():
-        print("статический метод, т.е. без объекта")
+        print("Статический метод, т.е. без объекта")
 
 T34 = Tank()
 T34.life = 100
@@ -24,23 +24,23 @@ T34.speed = 30
 
 print("ХП танка Т34 -", T34.life)
 print("Скорость Т34 -", T34.speed)
-print("смотрим тип объекта", type(T34))
+print("Смотрим тип объекта", type(T34))
 print()
 
 T34.life -= 50
-print("подбитый танк -", T34.life)
+print("Подбитый танк -", T34.life)
 T34.repair(40)
-print("танк после ремонта -", T34.life)
+print("Танк после ремонта -", T34.life)
 T34.repair(40)
-print("еще один ремонт -", T34.life)
+print("Еще один ремонт -", T34.life)
 T34.life -= 99.5
 T34.repair(40)
-print("ремонт невозможен -", T34.life)
+print("Ремонт невозможен -", T34.life)
 print(T34)
 #del T34
 Tank.NoObject()
 print()
-
+#!--------------------------------------------------------------------------------------------!#
 class Scaner(Tank):
     vision = 0
     
@@ -59,10 +59,10 @@ print("смотрим тип объекта", type(scanT34))
 print("проверка принадлежности объекта к классу Scaner - ", isinstance(scanT34, Scaner))
 print("проверка принадлежности к родительскому классу Tank -", isinstance(scanT34, Tank))
 print("проверка принадлежности к чужому классу", isinstance(T34, Scaner))
-del scanT34
-#print("После удаления не сработает -", scanT34.vision)
+#del scanT34
+print("После удаления не сработает -", scanT34.vision)
 print()
-
+#!--------------------------------------------------------------------------------------------!#
 class Close_person:
     def __init__(self, name):
         self.__name = name
@@ -77,7 +77,7 @@ class Close_person:
         if age in range(0, 150):
             self.__age = age
         else:
-            print("столько не живут")
+            print("Столько не живут")
     
     @property
     def name(self):
@@ -90,11 +90,11 @@ class Close_person:
         return "Имя: {} \t Возраст: {}".format(self.__name, self.__age)
 
 Mahmud = Close_person("Mahmud")
-Mahmud.display_info()
+#Mahmud.display_info()
 print(Mahmud)
 
 Mahmud.age = 200
-print("возраст", Mahmud.age)
+print("Возраст", Mahmud.age)
 
 Mahmud.age = 20
 Mahmud.display_info()
