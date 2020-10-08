@@ -13,6 +13,7 @@ Begin
   //writeln(10 div 3);
   //writeln(10 mod 3);
   //while x > 0 do 
+    
   begin
     x := x-1;
     writeln(x);
@@ -26,5 +27,17 @@ Begin
     writeln(Dinarr);
     for var i := 0 to High(Dinarr) do
       Dinarr[i] := i * i;
-    writeln(Dinarr)
+    writeln(Dinarr);
+    
+  writeln(5.555);
+  writeln(5.555:8:2);
+  writeln(trunc(5.555));
+  writeln(frac(5.555));
+  writeln(round(5.555));
+  
+  writeln(IntToStr(5));
+  writeln(FloatToStr(5.555)+ 3);
+  
+  writeln(StrToInt('5')+ 1);
+  writeln(StrToFloat('5')+0.8);
 End.
