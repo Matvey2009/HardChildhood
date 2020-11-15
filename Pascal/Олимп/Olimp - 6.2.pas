@@ -18,8 +18,7 @@ begin
   for i := 0 to L-1 do
   begin
     arr[i] := R mod 10;
-    R := R 
-    div 10;
+    R := R  div 10;
   end;
   
   write(arr);
