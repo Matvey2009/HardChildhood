@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>220</width>
+    <height>156</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>50</y>
+     <width>111</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+	background-color: rgb(0, 0, 0);
+	border: 4px solid rgb(255, 0, 0);
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>Нажимай сюда</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Pos_x">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>130</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+	background-color: rgb(0, 0, 0);
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Pos_y">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>130</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+	background-color: rgb(0, 0, 0);
+	border: 2px solid rgb(255, 0, 0);
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Xp">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>110</y>
+     <width>48</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>      X</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Yp">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>110</y>
+     <width>48</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>      Y</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="Freething">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>91</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>Замаорозка</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="KOL_CLICK_SEK">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Kol_click_sek">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget
+{
+	color: rgb(255, 0, 0);
+}</string>
+   </property>
+   <property name="text">
+    <string>Количество кликов</string>
+   </property>
+  </widget>
+  <widget class="QGraphicsView" name="Fon">
+   <property name="geometry">
+    <rect>
+     <x>-30</x>
+     <y>-20</y>
+     <width>256</width>
+     <height>192</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+	background-color: qlineargradient(spread:reflect, x1:0, y1:0, x2:1, y2:1, stop:0.318182 rgba(5, 5, 5, 255), stop:0.965909 rgba(255, 255, , 255));
+}</string>
+   </property>
+  </widget>
+  <zorder>Fon</zorder>
+  <zorder>pushButton</zorder>
+  <zorder>Pos_x</zorder>
+  <zorder>Pos_y</zorder>
+  <zorder>Xp</zorder>
+  <zorder>Yp</zorder>
+  <zorder>Freething</zorder>
+  <zorder>KOL_CLICK_SEK</zorder>
+  <zorder>Kol_click_sek</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
