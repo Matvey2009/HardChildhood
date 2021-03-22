@@ -42,6 +42,7 @@ class Menu(object):
                 button.focus = False
             button.update()
 
+
     def draw(self, g):
         """ Отрисовка """
         g.fill('black')

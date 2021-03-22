@@ -12,10 +12,14 @@ class Game(object):
         self.ground = Ground()
         self.unit = Unit()
         self.interface = Interface()
-        self.positon()
+        self.unit.rect.center = self.positon(size)
 
     def update(self, e):
         """ Обнавление """
+        size = pg.display.get_window_size()
+        if self.size != size:
+            self.size = size
+            self.unit.rect.center = self.positon(size)
         if e.type == pg.KEYDOWN and e.key == pg.K_UP:
             self.unit.rect.y -= 3
         if e.type == pg.KEYDOWN and e.key == pg.K_DOWN:
@@ -30,7 +34,8 @@ class Game(object):
         g.fill('grey')
         self.unit.draw(g)
 
-    def positon(self):
+    def positon(self, size):
         """ Позиция """
-        self.unit.rect.x = self.size[0] // 2 - self.unit.rect.width // 2
-        self.unit.rect.y = self.size[1] // 2 - self.unit.rect.height // 2
+        pos_x = size[0] // 2
+        pos_y = size[1] // 2
+        return pos_x, pos_y
