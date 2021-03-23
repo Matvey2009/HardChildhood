@@ -3,7 +3,6 @@ import pygame as pg
 class Unit(object):
     pg.init()
     sound = pg.mixer.Sound('sounds\\S.mp3')
-
     _image_ = pg.image.load('images\\bag.png')
 
     # Unit

@@ -31,8 +31,9 @@ class Game(object):
 
     def draw(self, g):
         """ Отрисовка """
-        g.fill('grey')
+        self.ground.draw(g)
         self.unit.draw(g)
+        self.interface.draw(g)
 
     def positon(self, size):
         """ Позиция """

@@ -1,16 +1,16 @@
-import sys
-from random import randint
+from modules.Terrain import Terrain
+import pygame as pg
 
 
 class Ground(object):
     def __init__(self):
         """ Конструктор """
-        pass
+        self.terrain = Terrain()
 
     def update(self):
         """ Обнавление """
         pass
 
-    def draw(self):
+    def draw(self, g):
         """ Отрисовка """
-        pass
+        self.terrain.draw(g)

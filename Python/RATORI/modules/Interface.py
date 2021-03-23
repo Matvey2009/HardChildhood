@@ -1,5 +1,6 @@
 import sys
 from random import randint
+import pygame as pg
 
 
 class Interface(object):
@@ -11,6 +12,6 @@ class Interface(object):
         """ Обнавление """
         pass
 
-    def draw(self):
+    def draw(self, g):
         """ Отрисовка """
-        pass
+        pg.draw.rect(g, '#047A00', (0, 500, 230, 220), 5)
