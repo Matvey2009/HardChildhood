@@ -11,7 +11,7 @@ class Game(object):
         self.size = size
         self.ground = Ground()
         self.unit = Unit()
-        self.interface = Interface()
+        self.interface = Interface(size)
         self.unit.rect.center = self.positon(size)
 
     def update(self, e):
@@ -28,6 +28,7 @@ class Game(object):
             self.unit.rect.x -= 3
         if e.type == pg.KEYDOWN and e.key == pg.K_RIGHT:
             self.unit.rect.x += 3
+        self.interface.update()
 
     def draw(self, g):
         """ Отрисовка """

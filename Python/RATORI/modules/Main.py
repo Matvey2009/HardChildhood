@@ -16,11 +16,12 @@ class Main(object):
         pg.display.set_icon(icon)
         pg.display.set_caption('RATORI')
 
-    #Game pass
     def game_start(self):
+        """ Game start """
         self.menu = Menu(self.size)
         self.game = Game(self.size)
         self.game_state = True
+
         self.game_cycle()
 
     #game_cycle
@@ -28,7 +29,6 @@ class Main(object):
         g = pg.display.get_surface()
 
         while self.game_state:
-
             # ______ ___ _____ _____ ____
             for e in pg.event.get():
                 # Выход из игры
