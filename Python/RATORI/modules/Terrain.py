@@ -1,4 +1,6 @@
 import pygame as pg
+from modules.map import map as _map_
+
 class Terrain(object):
 
     _atlas_ = pg.image.load('images\\sprite.bmp')
@@ -6,14 +8,25 @@ class Terrain(object):
     _rate_ = 48
 
     def __init__(self):
-        self.atlas = self._atlas_
-        self.rect = (48, 48)
-        self.image = self.atlas.subsurface((0, 0), (48, 48))
+        """ Окружение """
+        self.map = _map_
+        self.rate = self._rate_
+        self.tile_atlas = {}
+        self.tile_atlas = self.filling()
+        self.start_point = 1536, 768
 
-    def update(self):
-        """ Обнавление """
-        pass
+    def filling(self):
+        """ Зополняем Atlas таеломи """
+        atlas = self._atlas_
+        rate = self.rate
+        size = (rate, rate)
+        for row in range(atlas.get_height() // 48):
+            for col in range(atlas.get_width() // 48):
+                rect = (col * rate, row * rate)
+                image = atlas.subsurface(rect, size)
+                key = str(f'{row:0{2}}') + str(f'{col:0{2}}')
+                self.tile_atlas[key] = image
 
-    def draw(self, g):
-        """ Отрисовка """
-        g.blit(self.image, self.rect)
+        return self.tile_atlas
+
+

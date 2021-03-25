@@ -1,5 +1,4 @@
 from modules.Terrain import Terrain
-import pygame as pg
 
 
 class Ground(object):
@@ -13,4 +12,9 @@ class Ground(object):
 
     def draw(self, g):
         """ Отрисовка """
-        self.terrain.draw(g)
+        g.fill("darkgrey")
+        for y in range(15):
+            for x in range(27):
+                key = self.terrain.map[y][x]
+                tile = self.terrain.tile_atlas[key]
+                g.blit(tile, (x * 48, y * 48))

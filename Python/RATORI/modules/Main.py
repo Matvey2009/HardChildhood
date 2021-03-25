@@ -24,12 +24,11 @@ class Main(object):
 
         self.game_cycle()
 
-    #game_cycle
     def game_cycle(self):
+        """ Игровой цикл"""
         g = pg.display.get_surface()
 
         while self.game_state:
-            # ______ ___ _____ _____ ____
             for e in pg.event.get():
                 # Выход из игры
                 if e.type == pg.QUIT:
@@ -42,7 +41,7 @@ class Main(object):
                         self.flag = pg.FULLSCREEN
                     pg.display.set_mode((self.widht, self.height), self.flag)
 
-                #Menu drop game
+                # Menu drop game
                 if e.type == pg.KEYUP and e.key == pg.K_ESCAPE:
                     self.menu.menu_state = not self.menu.menu_state
 

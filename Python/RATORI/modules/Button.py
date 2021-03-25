@@ -1,12 +1,11 @@
 import pygame as pg
-import pygame
 
 class Button(object):
     pg.font.init()
     _font_ = pg.font.Font("images/fonts_matrix_cyr.ttf", 36)
 
     def __init__(self, btn_pos, name):
-        """ Unit """
+        """ Кнопка """
         self.name = name
         self.font_color = '#047A00'
         self.active = True

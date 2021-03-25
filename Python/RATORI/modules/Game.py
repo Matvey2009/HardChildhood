@@ -6,8 +6,8 @@ from modules.Interface import Interface
 
 class Game(object):
 
-    # GAME
     def __init__(self, size):
+        """ Игра """
         self.size = size
         self.ground = Ground()
         self.unit = Unit()
