@@ -1,5 +1,5 @@
 import pygame as pg
-from modules.Button import Button
+from modules.menu.Button import Button
 
 class Menu(object):
 

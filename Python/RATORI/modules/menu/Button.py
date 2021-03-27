@@ -25,7 +25,7 @@ class Button(object):
             self.font_color = 'gray'
 
     def draw(self, g):
-        ''' Отрисовка '''
+        """ Отрисовка """
         radius = 5
         pg.draw.rect(g, 'black', self.rect, border_radius=radius)
         pg.draw.rect(g, '#047A00', self.rect, 5, radius)

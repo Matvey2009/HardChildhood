@@ -1,7 +1,8 @@
 import pygame as pg
-from modules.Ground import Ground
-from modules.Unit import Unit
-from modules.Interface import Interface
+from modules.ground.Ground import Ground
+from modules.unit.Unit import Unit
+from modules.Interface.Interface import Interface
+from modules.unit.Hero import Hero
 
 
 class Game(object):
@@ -12,7 +13,9 @@ class Game(object):
         self.ground = Ground()
         self.unit = Unit()
         self.interface = Interface(size)
+        self.hero = Hero(size)
         self.unit.rect.center = self.positon(size)
+        self.hero.rect.center = self.positon(size)
 
     def update(self, e):
         """ Обнавление """
@@ -20,6 +23,7 @@ class Game(object):
         if self.size != size:
             self.size = size
             self.unit.rect.center = self.positon(size)
+            self.hero.rect.center = self.positon(size)
         if e.type == pg.KEYDOWN and e.key == pg.K_UP:
             self.unit.rect.y -= 3
         if e.type == pg.KEYDOWN and e.key == pg.K_DOWN:
@@ -33,8 +37,9 @@ class Game(object):
     def draw(self, g):
         """ Отрисовка """
         self.ground.draw(g)
-        self.unit.draw(g)
+        # self.unit.draw(g)
         self.interface.draw(g)
+        self.hero.draw(g)
 
     def positon(self, size):
         """ Позиция """

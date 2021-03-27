@@ -1,4 +1,4 @@
-from modules.Terrain import Terrain
+from modules.ground.Terrain import Terrain
 
 
 class Ground(object):

@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="PythonClass" />
         <option value="Python Script" />
+        <option value="PythonClass" />
       </list>
     </option>
   </component>
@@ -28,6 +28,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documents\Programs\HardChildhood\Python\RATORI\modules\Interface" />
+      <recent name="D:\Documents\Programs\HardChildhood\Python\RATORI\modules\unit" />
+      <recent name="D:\Documents\Programs\HardChildhood\Python\RATORI\modules\ground" />
+      <recent name="D:\Documents\Programs\HardChildhood\Python\RATORI\modules\menu" />
+      <recent name="D:\Documents\Programs\HardChildhood\Python\RATORI\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="RATORI" type="PythonConfigurationType" factoryName="Python" activateToolWindowBeforeRun="false" temporary="true" nameIsGenerated="true">

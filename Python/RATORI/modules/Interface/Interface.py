@@ -1,4 +1,4 @@
-from modules.MiniMap import MiniMap
+from modules.Interface.MiniMap import MiniMap
 
 class Interface(object):
     def __init__(self, size):

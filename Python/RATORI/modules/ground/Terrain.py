@@ -1,5 +1,5 @@
 import pygame as pg
-from modules.map import map as _map_
+from modules.ground.map import map as _map_
 
 class Terrain(object):
 
