@@ -3,12 +3,14 @@ import pygame as pg
 
 class Hero(object):
 
-    _atlas_ = pg.image.load('images\\Hero.jpg')
-    _atlas_.set_colorkey((255, 255, 255))
+    _atlas_ = pg.image.load('images\\Hero.png')
+    _rate_ = 64
 
     def __init__(self, size):
         """ Конструктор """
-        self.rate = 92
+        self.rate = self._rate_
+        self.tile_atlas = []
+        self.tile_atlas = self.filling()
         self.rect = pg.Rect(0, 0, self.rate, self.rate)
 
     def update(self):
@@ -17,8 +19,19 @@ class Hero(object):
 
     def draw(self, g):
         """ Отрисовка """
-        rate = self.rate
-        size = (rate, rate)
-        rect = self.rect
-        image = self._atlas_.subsurface((0 ,0), size)
+        image = self.tile_atlas[4][7]
         g.blit(image, self.rect)
+
+    def filling(self):
+        """ Зополняем Atlas таеломи """
+        atlas = self._atlas_
+        size = (self.rate, self.rate)
+        for row in range(atlas.get_height() // self.rate):
+            self.tile_atlas.append([])
+            for col in range(atlas.get_width() // self.rate):
+                rect = (col * self.rate, row * self.rate)
+                image = atlas.subsurface(rect, size)
+                image = pg.transform.scale(image, (self.rate * 2, self.rate * 2))
+                self.tile_atlas[row].append(image)
+
+        return self.tile_atlas
