@@ -43,7 +43,6 @@ class Hero(object):
 
         self.select()
 
-
     def draw(self, g):
         """ Отрисовка """
         self.image = self.title_atlas[self.row][self.col]
