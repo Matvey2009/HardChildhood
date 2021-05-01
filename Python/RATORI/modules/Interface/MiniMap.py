@@ -13,6 +13,7 @@ class MiniMap(object):
         self.rect = self.positon(self.size)
         self.hero = self.pos_hero(self.terrain.start_point)
         self.image = self.terrain.tile_atlas['0202']
+        self.visio = pg.Rect(self.visibility())
 
     def update(self):
         """ Обнавление """
@@ -21,7 +22,7 @@ class MiniMap(object):
             self.size = size
             self.rate = self.size[0] // (self.count_x * 3)
             self.rect = self.positon(self.size)
-        self.hero = self.pos_hero(self.hero)
+        # self.hero = self.pos_hero(self.hero)
 
     def draw(self, g):
         """ Отрисовка """
@@ -34,6 +35,7 @@ class MiniMap(object):
 
         pg.draw.circle(g, 'Blue', self.hero, 5)
         pg.draw.rect(g, 'Blue', self.rect, 5)
+        pg.draw.rect(g, 'Green', self.visio, 3)
 
     def positon(self, size):
         """ Позиция """
@@ -46,6 +48,15 @@ class MiniMap(object):
 
     def pos_hero(self, hero):
         """Расчёт позиции героя"""
-        x = 193
-        y = 623
+        x = hero[0] * self.rate // self.terrain.rate
+        y = hero[1] * self.rate // self.terrain.rate + self.rect[1]
+
         return x, y
+
+    def visibility(self):
+        x = self.hero[0] - self.size[0] * self.rate // self.terrain.rate // 2
+        y = self.hero[1] - self.size[1] * self.rate // self.terrain.rate // 2
+        w = self.size[0] * self.rate // self.terrain.rate
+        h = self.size[1] * self.rate // self.terrain.rate
+        print(x, y)
+        return x, y, w, h
