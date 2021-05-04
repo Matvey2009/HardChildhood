@@ -6,9 +6,9 @@ class Interface(object):
         self.size = size
         self.minimap = MiniMap(self.size)
 
-    def update(self):
+    def update(self, hero):
         """ Обнавление """
-        self.minimap.update()
+        self.minimap.update(hero)
 
     def draw(self, g):
         """ Отрисовка """

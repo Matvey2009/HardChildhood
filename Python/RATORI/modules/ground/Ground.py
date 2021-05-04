@@ -17,7 +17,7 @@ class Ground(object):
     def update(self, size, turn):
         """ Обнавление """
         self.select()
-        scrole = 5
+        scrole = 2
         if turn == "right_down":
             self.point_x += scrole
             self.point_y += scrole
@@ -31,13 +31,13 @@ class Ground(object):
             self.point_x += scrole
             self.point_y -= scrole
         elif turn == 'down':
-            self.point_y -= scrole
+            self.point_y += scrole
         elif turn == 'left':
             self.point_x -= scrole
         elif turn == 'right':
             self.point_x += scrole
         elif turn == 'up':
-            self.point_x -= scrole
+            self.point_y -= scrole
 
     def draw(self, g):
         """ Отрисовка """
@@ -52,8 +52,8 @@ class Ground(object):
         x_right = x_left + self.size[0]
         y_top = self.point_y - self.size[1] // 2
         y_button = y_top + self.size[1]
-        for y in range(y_top // rate, y_button // rate):
-            for x in range(x_left // rate, x_right // rate):
+        for y in range(y_top // rate, y_button // rate+1):
+            for x in range(x_left // rate, x_right // rate+1):
                 key = self.terrain.map[y][x]
                 tile = self.terrain.tile_atlas[key]
                 self.surface.blit(tile, (x * rate - x_left, y * rate - y_top, rate , rate))

@@ -15,14 +15,15 @@ class MiniMap(object):
         self.image = self.terrain.tile_atlas['0202']
         self.visio = pg.Rect(self.visibility())
 
-    def update(self):
+    def update(self, hero):
         """ Обнавление """
         size = pg.display.get_window_size()
         if self.size != size:
             self.size = size
             self.rate = self.size[0] // (self.count_x * 3)
             self.rect = self.positon(self.size)
-        # self.hero = self.pos_hero(self.hero)
+        self.hero = self.pos_hero(hero)
+        self.visio = self.visibility()
 
     def draw(self, g):
         """ Отрисовка """
