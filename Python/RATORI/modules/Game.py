@@ -9,10 +9,10 @@ class Game(object):
     def __init__(self, size):
         """ Игра """
         self.size = size
-        self.ground = Ground(size)
-        self.interface = Interface(size)
-        self.hero = Hero(size)
-        self.hero.rect.center = self.positon(size)
+        self.ground = Ground(self.size)
+        self.interface = Interface(self.size)
+        self.hero = Hero(self.size)
+        self.hero.rect.center = self.positon(self.size)
         self.turn = 'stop'
 
     def update(self, e):
