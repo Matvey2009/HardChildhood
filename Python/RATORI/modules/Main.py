@@ -9,7 +9,7 @@ class Main(object):
         self.local_version = 1
         self.flag = pg.RESIZABLE
         self.size = self.width, self.height = 1280, 720
-        self.fps = 60
+        self.fps = 100000
 
         pg.display.set_mode(self.size, self.flag)
         icon = pg.image.load('images\\iconPNG.png')
