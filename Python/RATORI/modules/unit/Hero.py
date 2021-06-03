@@ -8,6 +8,7 @@ class Hero(object):
 
     def __init__(self, size):
         """ Конструктор """
+        pg.init()
         self.rate = self._rate_
         self.title_atlas = []
         self.title_atlas = self.filling()
@@ -17,6 +18,7 @@ class Hero(object):
         self.col = 0
         self.step = 0
         self.image = self.title_atlas[self.row][self.col]
+        self.sound = pg.mixer.Sound("sounds\sound.wav")
 
 
     def update(self, turn):
@@ -69,3 +71,8 @@ class Hero(object):
                 self.title_atlas[row].append(image)
 
         return self.title_atlas
+
+    # Шаги
+    def steps(self):
+        """Звуки шагов"""
+        pg.mixer.Sound.play(self.sound)
