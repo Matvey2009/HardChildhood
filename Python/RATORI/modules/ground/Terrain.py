@@ -13,7 +13,7 @@ class Terrain(object):
         self.rate = self._rate_
         self.tile_atlas = {}
         self.tile_atlas = self.filling()
-        self.start_point = 1536, 768
+        self.start_point = 3050, 1896
 
     def filling(self):
         """ Зополняем Atlas таеломи """

@@ -1,12 +1,12 @@
 import pygame as pg
 
-class Score(object):
+class Bullet(object):
     def __init__(self, size):
         """Конструктор"""
         self.size = size
-        self.score = 0
+        self.bullet = 24
         self.font = pg.font.Font(None, 36)
-        self.text = self.font.render(str(self.score), True, 'White')
+        self.text = self.font.render(str(self.bullet), True, 'Black')
 
     def update(self, size):
         """Обновление"""
@@ -16,4 +16,4 @@ class Score(object):
 
     def draw(self, g):
         """Отрисовка"""
-        g.blit(self.text, (self.size[0]-50, 0))
+        g.blit(self.text, (self.size[0]-50, self.size[1]-50))
