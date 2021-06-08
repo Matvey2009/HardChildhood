@@ -22,6 +22,7 @@ class Game(object):
             self.size = size
             self.hero.rect.center = self.positon(size)
 
+
         # Смисок кликов клавиатуры
         keys = pg.key.get_pressed()
 
