@@ -14,7 +14,6 @@ class Terrain(object):
         self.tile_atlas = {}
         self.tile_atlas = self.filling()
         self.start_point = 3050, 1896
-        self.start_point_monster = 3000, 1800
 
     def filling(self):
         """ Зополняем Atlas таеломи """

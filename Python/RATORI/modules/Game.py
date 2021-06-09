@@ -2,6 +2,7 @@ import pygame as pg
 from modules.ground.Ground import Ground
 from modules.Interface.Interface import Interface
 from modules.unit.Hero import Hero
+from modules.unit.Monster import Monster
 
 
 class Game(object):
@@ -13,7 +14,10 @@ class Game(object):
         self.interface = Interface(self.size)
         self.hero = Hero(self.size)
         self.hero.rect.center = self.positon(self.size)
+        self.monster = Monster()
+        self.monster.rect.center = self.positon(self.size)
         self.turn = 'stop'
+        self.Pos_Mos = 3000, 1800
 
     def update(self, e):
         """ Обнавление """
@@ -49,12 +53,16 @@ class Game(object):
         self.hero.update(self.turn)
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
+        self.monster.update(self.turn)
+        monster = self.ground.point_x, self.ground.point_y
+        self.interface.update(monster)
 
     def draw(self, g):
         """ Отрисовка """
         self.ground.draw(g)
         self.interface.draw(g)
         self.hero.draw(g)
+        self.monster.draw(g)
 
     def positon(self, size):
         """ Позиция """
