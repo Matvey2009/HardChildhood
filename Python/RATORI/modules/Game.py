@@ -18,7 +18,9 @@ class Game(object):
         self.monster.rect.center = self.positon_monster(self.size)
         self.turn = 'stop'
         self.turn_m = 'stop'
-        self.Pos_Mos = 3000, 1800
+        # self.random = 100-150
+        # self.random = random
+        # self.target
 
     def update(self, e):
         """ Обнавление """
@@ -65,7 +67,7 @@ class Game(object):
         self.monster.update(self.turn_m)
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
-        self.monster.update(self.turn_m)
+        self.monster.update(self.turn)
         monster = self.ground.point_x, self.ground.point_y
         self.interface.update(monster)
 
@@ -85,8 +87,12 @@ class Game(object):
 
     def positon_monster(self, size):
         """ Позиция """
-        pos_x = size[0] // 2 + 300
+        pos_x = size[0] // 2 + 50
         pos_y = size[1] // 2
 
         return pos_x, pos_y
+
+    def random(self):
+        """Куда будет идти Преступник"""
+        pass
 
