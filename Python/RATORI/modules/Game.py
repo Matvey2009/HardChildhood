@@ -15,8 +15,9 @@ class Game(object):
         self.hero = Hero(self.size)
         self.hero.rect.center = self.positon(self.size)
         self.monster = Monster()
-        self.monster.rect.center = self.positon(self.size)
+        self.monster.rect.center = self.positon_monster(self.size)
         self.turn = 'stop'
+        self.turn_m = 'stop'
         self.Pos_Mos = 3000, 1800
 
     def update(self, e):
@@ -25,6 +26,7 @@ class Game(object):
         if self.size != size:
             self.size = size
             self.hero.rect.center = self.positon(size)
+            self.hero.rect.center = self.positon_monster(size)
 
 
         # Смисок кликов клавиатуры
@@ -46,14 +48,24 @@ class Game(object):
             self.turn = 'right'
         elif (keys[pg.K_UP]):
             self.turn = 'up'
+
+        elif (keys[pg.K_DOWN]):
+            self.turn_m = 'up'
+        elif (keys[pg.K_LEFT]):
+            self.turn_m = 'right'
+        elif (keys[pg.K_RIGHT]):
+            self.turn_m = 'left'
+        elif (keys[pg.K_UP]):
+            self.turn_m = 'down'
         else:
             self.turn = 'stop'
 
         self.ground.update(self.size, self.turn)
         self.hero.update(self.turn)
+        self.monster.update(self.turn_m)
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
-        self.monster.update(self.turn)
+        self.monster.update(self.turn_m)
         monster = self.ground.point_x, self.ground.point_y
         self.interface.update(monster)
 
@@ -68,4 +80,13 @@ class Game(object):
         """ Позиция """
         pos_x = size[0] // 2
         pos_y = size[1] // 2
+
         return pos_x, pos_y
+
+    def positon_monster(self, size):
+        """ Позиция """
+        pos_x = size[0] // 2 + 300
+        pos_y = size[1] // 2
+
+        return pos_x, pos_y
+

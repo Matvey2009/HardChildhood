@@ -81,3 +81,5 @@ class Ground(object):
                 # text = self.font.render((str(y) + "-" + str(x)), True, "Blue")
                 # text_rect = text.get_rect()
                 # self.surface.blit(text, (x * rate - x_left + 4, y * rate - y_top + 16), text_rect)
+
+
