@@ -1,8 +1,9 @@
 import pygame as pg
 from modules.ground.Ground import Ground
-from modules.Interface.Interface import Interface
 from modules.unit.Hero import Hero
+from modules.unit.Gangster import Gangster
 from modules.unit.Monster import Monster
+from modules.Interface.Interface import Interface
 
 
 class Game(object):
@@ -12,9 +13,10 @@ class Game(object):
         self.size = size
         self.ground = Ground(self.size)
         self.interface = Interface(self.size)
+        self.monster = Monster()
+        self.gangster = Gangster()
         self.hero = Hero(self.size)
         self.hero.rect.center = self.positon(self.size)
-        self.monster = Monster()
         self.monster.rect.center = self.positon_monster(self.size)
         self.turn = 'stop'
         self.turn_m = 'stop'
@@ -50,33 +52,23 @@ class Game(object):
             self.turn = 'right'
         elif (keys[pg.K_UP]):
             self.turn = 'up'
-
-        elif (keys[pg.K_DOWN]):
-            self.turn_m = 'up'
-        elif (keys[pg.K_LEFT]):
-            self.turn_m = 'right'
-        elif (keys[pg.K_RIGHT]):
-            self.turn_m = 'left'
-        elif (keys[pg.K_UP]):
-            self.turn_m = 'down'
         else:
             self.turn = 'stop'
 
         self.ground.update(self.size, self.turn)
-        self.hero.update(self.turn)
+        self.gangster.update(self.turn)
         self.monster.update(self.turn_m)
+        self.hero.update(self.turn)
         hero = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
-        self.monster.update(self.turn)
-        monster = self.ground.point_x, self.ground.point_y
-        self.interface.update(monster)
 
     def draw(self, g):
         """ Отрисовка """
         self.ground.draw(g)
-        self.interface.draw(g)
-        self.hero.draw(g)
+        self.gangster.draw(g)
         self.monster.draw(g)
+        self.hero.draw(g)
+        self.interface.draw(g)
 
     def positon(self, size):
         """ Позиция """
