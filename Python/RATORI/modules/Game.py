@@ -57,9 +57,10 @@ class Game(object):
 
         self.ground.update(self.size, self.turn)
         self.gangster.update(self.turn)
-        self.monster.update(self.turn_m)
+        self.monster.update(self.turn)
         self.hero.update(self.turn)
         hero = self.ground.point_x, self.ground.point_y
+        gangster = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
 
     def draw(self, g):
@@ -79,12 +80,9 @@ class Game(object):
 
     def positon_monster(self, size):
         """ Позиция """
-        pos_x = size[0] // 2 + 50
+        pos_x = size[0] // 2 + 68
         pos_y = size[1] // 2
 
         return pos_x, pos_y
 
-    def random(self):
-        """Куда будет идти Преступник"""
-        pass
 
