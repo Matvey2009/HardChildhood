@@ -1,9 +1,8 @@
 import pygame as pg
 from modules.ground.Ground import Ground
 from modules.unit.Hero import Hero
-from modules.unit.Gangster import Gangster
-from modules.unit.Monster import Monster
 from modules.Interface.Interface import Interface
+from modules.unit.Units import Units
 
 
 class Game(object):
@@ -13,16 +12,11 @@ class Game(object):
         self.size = size
         self.ground = Ground(self.size)
         self.interface = Interface(self.size)
-        self.monster = Monster()
-        self.gangster = Gangster()
+        self.units = Units(size)
         self.hero = Hero(self.size)
         self.hero.rect.center = self.positon(self.size)
-        self.monster.rect.center = self.positon_monster(self.size)
         self.turn = 'stop'
         self.turn_m = 'stop'
-        # self.random = 100-150
-        # self.random = random
-        # self.target
 
     def update(self, e):
         """ Обнавление """
@@ -56,18 +50,15 @@ class Game(object):
             self.turn = 'stop'
 
         self.ground.update(self.size, self.turn)
-        self.gangster.update(self.turn)
-        self.monster.update(self.turn)
+        self.units.update(self.turn)
         self.hero.update(self.turn)
         hero = self.ground.point_x, self.ground.point_y
-        gangster = self.ground.point_x, self.ground.point_y
         self.interface.update(hero)
 
     def draw(self, g):
         """ Отрисовка """
         self.ground.draw(g)
-        self.gangster.draw(g)
-        self.monster.draw(g)
+        self.units.draw(g)
         self.hero.draw(g)
         self.interface.draw(g)
 

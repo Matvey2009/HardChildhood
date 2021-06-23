@@ -6,7 +6,7 @@ class Gangster(object):
     pg.init()
     _atlas_ = pg.image.load('images\\gangster.png')
 
-    def __init__(self):
+    def __init__(self, size):
         """ Конструктор """
         self.row = 6
         self.col = 0
@@ -21,7 +21,8 @@ class Gangster(object):
         self.scroll = round(self.scroll_line / 1.4)
         self.title_atlas = []
         self.title_atlas = self.filling()
-        self.point_x, self.point_y = (r(400, 600), r(200, 400))
+        self.point_x = r(size[0] // 4, size[0] * 3 // 4)
+        self.point_y = r(size[1] // 4, size[1] * 3 // 4)
         self.image = self.title_atlas[self.row][self.col]
         self.rect = pg.Rect(self.point_x, self.point_y, self.rate_x, self.rate_y)
 
@@ -37,7 +38,7 @@ class Gangster(object):
         else:
             self.col = self.unit_turn
             self.image = self.select()
-        self.rect.x, self.rect.y = self.move_unit()
+
 
     def draw(self, g):
         """ Отрисовка """
@@ -91,30 +92,5 @@ class Gangster(object):
             self.point_x -= self.scroll_line
         elif turn == 'up':
             self.point_y += self.scroll_line
-
-        return self.point_x, self.point_y
-
-    def move_unit(self):
-        """Движение юнита"""
-        if self.unit_turn == 1:
-            self.point_x += self.speedD
-            self.point_y += self.speedD
-        elif self.unit_turn == 7:
-            self.point_x -= self.speedD
-            self.point_y += self.speedD
-        elif self.unit_turn == 5:
-            self.point_x -= self.speedD
-            self.point_y -= self.speedD
-        elif self.unit_turn == 3:
-            self.point_x += self.speedD
-            self.point_y -= self.speedD
-        elif self.unit_turn == 2:
-            self.point_x += self.speed
-        elif self.unit_turn == 0:
-            self.point_y += self.speed
-        elif self.unit_turn == 6:
-            self.point_x -= self.speed
-        elif self.unit_turn == 4:
-            self.point_y -= self.speed
 
         return self.point_x, self.point_y
