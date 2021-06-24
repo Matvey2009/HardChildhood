@@ -1,6 +1,6 @@
-import pygame as pg
 from modules.unit.Monster import Monster
 from modules.unit.Gangster import Gangster
+from modules.unit.Dog import Dog
 
 class Units(object):
     def __init__(self, size):
@@ -9,6 +9,10 @@ class Units(object):
         self.count = 50
         for i in range(self.count):
             unit = Gangster(size)
+            self.list_unit.append(unit)
+
+        for i in range(self.count - 40):
+            unit = Dog(size)
             self.list_unit.append(unit)
 
         self.monster = Monster()
