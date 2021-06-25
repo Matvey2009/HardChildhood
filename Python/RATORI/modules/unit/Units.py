@@ -5,10 +5,11 @@ from modules.unit.Dog import Dog
 class Units(object):
     def __init__(self, size):
         """ Конструктор """
+        title_atlas = Gangster.filling()
         self.list_unit = []
-        self.count = 50
+        self.count = 1000
         for i in range(self.count):
-            unit = Gangster(size)
+            unit = Gangster(size, title_atlas)
             self.list_unit.append(unit)
 
         for i in range(self.count - 40):
