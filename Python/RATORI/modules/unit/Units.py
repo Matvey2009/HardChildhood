@@ -7,13 +7,13 @@ class Units(object):
         """ Конструктор """
         title_atlas = Gangster.filling()
         self.list_unit = []
-        self.count = 1000
+        self.count = 50
         for i in range(self.count):
             unit = Gangster(size, title_atlas)
             self.list_unit.append(unit)
-
+        title_atlas = Dog.filling()
         for i in range(self.count - 40):
-            unit = Dog(size)
+            unit = Dog(size, title_atlas)
             self.list_unit.append(unit)
 
         self.monster = Monster()
