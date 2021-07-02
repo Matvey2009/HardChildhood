@@ -2,6 +2,8 @@ from modules.Interface.MiniMap import MiniMap
 from modules.Interface.Bullet import Bullet
 from modules.Interface.Life import Life
 from modules.Interface.Score import Score
+
+
 class Interface(object):
 
     def __init__(self, size):

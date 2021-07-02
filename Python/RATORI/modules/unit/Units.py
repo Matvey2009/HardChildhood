@@ -2,7 +2,9 @@ from modules.unit.Monster import Monster
 from modules.unit.Gangster import Gangster
 from modules.unit.Dog import Dog
 
+
 class Units(object):
+
     def __init__(self, size):
         """ Конструктор """
         title_atlas = Gangster.filling()
@@ -31,7 +33,7 @@ class Units(object):
         """ Отрисовка """
         for unit in self.list_unit:
             unit.draw(g)
-        self.monster.draw(g)
+        # self.monster.draw(g)
 
     def move_unit(self, unit):
         """Движение юнита"""
