@@ -54,7 +54,7 @@ class Dog(object):
             self.image = self.select()
 
 
-    def draw(self, g):
+    def draw_unit(self, g):
         """ Отрисовка """
         g.blit(self.image, self.rect)
 

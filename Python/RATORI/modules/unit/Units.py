@@ -1,6 +1,8 @@
 from modules.unit.Monster import Monster
 from modules.unit.Gangster import Gangster
-from modules.unit.Dog import Dog
+from modules.unit.Civil import Civil
+from modules.unit.Cat import Cat
+from modules.unit.Adapter import Adapter
 
 
 class Units(object):
@@ -8,14 +10,22 @@ class Units(object):
     def __init__(self, size):
         """ Конструктор """
         title_atlas = Gangster.filling()
+        civil_atlas = Civil.filling()
+        cat_atlas = Cat.filling()
         self.list_unit = []
         self.count = 50
         for i in range(self.count):
             unit = Gangster(size, title_atlas)
             self.list_unit.append(unit)
-        title_atlas = Dog.filling()
+        title_atlas = Adapter.filling()
         for i in range(self.count - 40):
-            unit = Dog(size, title_atlas)
+            unit = Adapter(size, title_atlas)
+            self.list_unit.append(unit)
+        for i in range(self.count - 30):
+            unit = Civil(size, civil_atlas)
+            self.list_unit.append(unit)
+        for i in range(self.count - 30):
+            unit = Cat(size, cat_atlas)
             self.list_unit.append(unit)
 
         self.monster = Monster()

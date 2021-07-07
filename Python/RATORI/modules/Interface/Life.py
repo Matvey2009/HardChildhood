@@ -11,7 +11,9 @@ class Life(object):
 
     def update(self):
         """ Обновление """
-        pass
+        self.life -= 1
+        if self.life < 1:
+            self.life = 100
 
     def draw(self, g):
         """ Отрисовка """
