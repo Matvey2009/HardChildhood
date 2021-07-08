@@ -30,6 +30,7 @@ class Gangster(object):
         self.speedD = 2
         self.rate_x = 80
         self.rate_y = 65
+        self.arrest = False
         self.unit_turn = 8
         self.time_move = 60
         self.scroll_line = 10
@@ -43,15 +44,18 @@ class Gangster(object):
     def update(self, turn):
         """ Обнавление """
         self.rect.x, self.rect.y = self.pos_unit(turn)
-        if self.time_move < 1:
-            self.unit_turn = r(0, 8)
-            self.time_move = r(30, 150)
-        self.time_move -= 1
-        if self.unit_turn > 7:
-            self.image = self.title_atlas[6][0]
+        if not self.arrest:
+            if self.time_move < 1:
+                self.unit_turn = r(0, 8)
+                self.time_move = r(30, 150)
+            self.time_move -= 1
+            if self.unit_turn > 7:
+                self.image = self.title_atlas[6][0]
+            else:
+                self.col = self.unit_turn
+                self.image = self.select()
         else:
-            self.col = self.unit_turn
-            self.image = self.select()
+            self.image = self.title_atlas[8][self.col]
 
 
     def draw(self, g):

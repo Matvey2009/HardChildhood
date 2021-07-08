@@ -1,4 +1,3 @@
-from modules.unit.Monster import Monster
 from modules.unit.Gangster import Gangster
 from modules.unit.Civil import Civil
 from modules.unit.Cat import Cat
@@ -12,6 +11,7 @@ class Units(object):
         title_atlas = Gangster.filling()
         civil_atlas = Civil.filling()
         cat_atlas = Cat.filling()
+        self.size = size
         self.list_unit = []
         self.count = 50
         for i in range(self.count):
@@ -28,7 +28,6 @@ class Units(object):
             unit = Cat(size, cat_atlas)
             self.list_unit.append(unit)
 
-        self.monster = Monster()
         self.speed = 3
         self.speedD = 2
 
@@ -36,8 +35,10 @@ class Units(object):
         """ Обнавление """
         for unit in self.list_unit:
             unit.rect.x, unit.rect.y = self.move_unit(unit)
+            if unit.rect.collidepoint(self.size[0] // 2, self.size[1] // 2):
+                unit.arrest = True
+                unit.unit_turn = 8
             unit.update(turn)
-        self.monster.update(turn)
 
     def draw(self, g):
         """ Отрисовка """

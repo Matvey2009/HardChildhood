@@ -5,6 +5,7 @@ from modules.Interface.Score import Score
 
 
 class Interface(object):
+    """Пример фасада"""
 
     def __init__(self, size):
         """Конструктор"""
