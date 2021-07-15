@@ -2,6 +2,7 @@ from modules.unit.Gangster import Gangster
 from modules.unit.Civil import Civil
 from modules.unit.Cat import Cat
 from modules.unit.Adapter import Adapter
+from modules.unit.Shot import Shot
 
 
 class Units(object):
@@ -13,6 +14,9 @@ class Units(object):
         cat_atlas = Cat.filling()
         self.size = size
         self.list_unit = []
+        self.list_shot = []
+        self.shot = Shot()
+        self.list_shot.append(self.shot)
         self.count = 50
         for i in range(self.count):
             unit = Gangster(size, title_atlas)
@@ -27,7 +31,6 @@ class Units(object):
         for i in range(self.count - 30):
             unit = Cat(size, cat_atlas)
             self.list_unit.append(unit)
-
         self.speed = 3
         self.speedD = 2
 
@@ -39,12 +42,16 @@ class Units(object):
                 unit.arrest = True
                 unit.unit_turn = 8
             unit.update(turn)
+        for self.shot in self.list_shot:
+            self.shot.update()
 
     def draw(self, g):
         """ Отрисовка """
         for unit in self.list_unit:
             unit.draw(g)
-        # self.monster.draw(g)
+        for self.shot in self.list_shot:
+            self.shot.draw(g)
+
 
     def move_unit(self, unit):
         """Движение юнита"""

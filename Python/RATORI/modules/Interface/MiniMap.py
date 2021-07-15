@@ -44,7 +44,6 @@ class MiniMap(object):
         x2 = self.rate * self.count_x
         y2 = self.rate * self.count_y
         y1 = size[1] - y2
-        print(size)
         return x1, y1, x2, y2
 
     def pos_hero(self, hero):
@@ -59,5 +58,4 @@ class MiniMap(object):
         y = self.hero[1] - self.size[1] * self.rate // self.terrain.rate // 2
         w = self.size[0] * self.rate // self.terrain.rate
         h = self.size[1] * self.rate // self.terrain.rate
-        print(x, y)
         return x, y, w, h

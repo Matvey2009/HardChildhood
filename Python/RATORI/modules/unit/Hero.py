@@ -74,6 +74,8 @@ class Hero(object):
 
         return self.title_atlas
 
+
+
     # Шаги
     def steps(self):
         """Звуки шагов"""

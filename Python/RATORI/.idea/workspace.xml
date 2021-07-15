@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="PythonClass" />
         <option value="Python Script" />
+        <option value="PythonClass" />
       </list>
     </option>
   </component>
