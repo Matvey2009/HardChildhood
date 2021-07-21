@@ -15,7 +15,7 @@ class Units(object):
         self.size = size
         self.list_unit = []
         self.list_shot = []
-        self.shot = Shot(size)
+        self.shot = Shot(size, turn)
         self.list_shot.append(self.shot)
         self.count = 50
         for i in range(self.count):
