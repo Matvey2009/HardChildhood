@@ -1,20 +1,21 @@
 import pygame as pg
+from modules.unit.Abstract import Abstract
 
 
-class Shot(object):
+class Shot(Abstract):
 
-    def __init__(self):
+    def __init__(self, size):
         """ Конструктор """
-        self.x = 100
-        self.y = 100
-        self.point = (self.x, self.y)
+        self.size = size
+        self.point_x = self.size[0] // 2
+        self.point_y = self.size[1] // 2
 
-    def update(self):
+    def update(self, turn):
         """ Обнавление """
-        self.x += 1
-        self.y += 1
-        self.point = (self.x, self.y)
+        self.point_x, self.point_y = self.pos_unit(turn)
+        self.point_x += 10
+        self.point_y += 10
 
     def draw (self, g):
         """ Отрисовка """
-        pg.draw.circle(g, (255, 69, 0), self.point, 5)
+        pg.draw.circle(g, (255, 69, 0), (self.point_x, self.point_y), 5)

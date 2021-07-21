@@ -15,7 +15,7 @@ class Units(object):
         self.size = size
         self.list_unit = []
         self.list_shot = []
-        self.shot = Shot()
+        self.shot = Shot(size)
         self.list_shot.append(self.shot)
         self.count = 50
         for i in range(self.count):
@@ -43,7 +43,7 @@ class Units(object):
                 unit.unit_turn = 8
             unit.update(turn)
         for self.shot in self.list_shot:
-            self.shot.update()
+            self.shot.update(turn)
 
     def draw(self, g):
         """ Отрисовка """

@@ -1,8 +1,9 @@
 import pygame as pg
 from random import randint as r
+from modules.unit.Abstract import Abstract
 
 
-class Civil(object):
+class Civil(Abstract):
     pg.init()
 
     @staticmethod
@@ -35,8 +36,6 @@ class Civil(object):
         self.point_x, self.point_y = (r(self.size[0] // 4, self.size[0] // 4 * 3)), (
             r(self.size[1] // 4, self.size[1] // 4 * 3))
         self.rect = pg.Rect(self.point_x, self.point_y, self.rate, self.rate)
-        self.scroll_line = 10
-        self.scroll = round(self.scroll_line / 1.4)
         self.time_move = 60
         self.speed = 1
 
