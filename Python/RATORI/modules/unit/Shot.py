@@ -4,7 +4,7 @@ from modules.unit.Abstract import Abstract
 
 class Shot(Abstract):
 
-    def __init__(self, size):
+    def __init__(self, size, turn):
         """ Конструктор """
         self.size = size
         self.point_x = self.size[0] // 2
