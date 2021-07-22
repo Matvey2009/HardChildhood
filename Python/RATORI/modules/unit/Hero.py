@@ -12,12 +12,12 @@ class Hero(object):
         self.rate = self._rate_
         self.title_atlas = []
         self.title_atlas = self.filling()
-        self.rect = pg.Rect(0, 0, self.rate, self.rate)
         self.speed = 0
         self.row = 0
         self.col = 0
         self.step = 0
         self.image = self.title_atlas[self.row][self.col]
+        self.rect = self.image.get_rect()
         self.sound = pg.mixer.Sound("sounds\sound.wav")
 
 
@@ -49,8 +49,8 @@ class Hero(object):
         """ Отрисовка """
         self.image = self.title_atlas[self.row][self.col]
         g.blit(self.image, self.rect)
-        pg.draw.line(g, 'red', (600, 320), (680, 400), 1)  ########
-        pg.draw.line(g, 'red', (600, 400), (680, 320), 1)  ########
+        # pg.draw.line(g, 'red', (600, 320), (680, 400), 1)  ########
+        # pg.draw.line(g, 'red', (600, 400), (680, 320), 1)  ########
 
     def select(self):
         self.speed += 1

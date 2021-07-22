@@ -12,11 +12,10 @@ class Game(object):
         self.size = size
         self.ground = Ground(self.size)
         self.interface = Interface(self.size)
-        self.units = Units(size)
+        self.units = Units(self.size)
         self.hero = Hero(self.size)
         self.hero.rect.center = self.positon(self.size)
         self.turn = 'stop'
-        self.turn_m = 'stop'
 
     def update(self, e):
         """ Обнавление """
@@ -24,8 +23,11 @@ class Game(object):
         if self.size != size:
             self.size = size
             self.hero.rect.center = self.positon(size)
-            self.hero.rect.center = self.positon_monster(size)
 
+        # Клики мышки
+        click = pg.mouse.get_pressed(3)
+        if click[0] == True:
+            self.units.add_shot(self.turn)
 
         # Смисок кликов клавиатуры
         keys = pg.key.get_pressed()
@@ -68,12 +70,3 @@ class Game(object):
         pos_y = size[1] // 2
 
         return pos_x, pos_y
-
-    def positon_monster(self, size):
-        """ Позиция """
-        pos_x = size[0] // 2 + 68
-        pos_y = size[1] // 2
-
-        return pos_x, pos_y
-
-

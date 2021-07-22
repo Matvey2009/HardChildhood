@@ -62,7 +62,7 @@ class Gangster(Abstract):
     def draw(self, g):
         """ Отрисовка """
         g.blit(self.image, self.rect)
-        pg.draw.rect(g, 'black', self.rect, 1)  ########
+        # pg.draw.rect(g, 'black', self.rect, 1)  ########
 
     def select(self):
         """Выбор шага"""

@@ -8,12 +8,12 @@ class Abstract(ABC):
     scroll = round(scroll_line / 1.4)
 
     @abstractmethod
-    def update(self):
+    def update(self, turn):
         """ Обнавление """
         pass
 
     @abstractmethod
-    def draw(self):
+    def draw(self, g):
         """ Отрисовка """
         pass
 
