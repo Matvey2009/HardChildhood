@@ -1,13 +1,23 @@
-M, N = map(int, input().split())
+N, M = map(int, input().split())
 arr = list(map(int, input().split()))
 
-maxim = 0
-for i in arr:
-    temp = arr.count(i)
-    if temp > maxim:
-        maxim = temp
+arr.sort()
+lest = 0
+max_counter = 1
+start_counter = 0
 
-if maxim >= N:
-    print(0)
-else:
-    print(N - maxim)
+for i in arr:
+    if i > lest:
+        counter = 1
+        lest = i
+        start_counter = arr.index(i)
+    else:
+        counter += 1
+        if counter >= M:
+            max_counter = M
+            break
+        if counter >= max_counter:
+            if start_counter >= M - counter:
+                max_counter = counter
+
+print(M - max_counter)
