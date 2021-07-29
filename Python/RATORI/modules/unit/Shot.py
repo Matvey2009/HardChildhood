@@ -7,6 +7,7 @@ class Shot(Abstract):
     def __init__(self, size, turn):
         """ Конструктор """
         self.speed = 0
+        self.time_dell = 600
         self.size = size
         self.shot_turn = turn
         self.point_x = self.size[0] // 2
@@ -45,3 +46,6 @@ class Shot(Abstract):
         elif self.shot_turn == 'up':
             self.point_y -= self.scroll_line
         return self.point_x, self.point_y
+
+    def __del__(self):
+        pass

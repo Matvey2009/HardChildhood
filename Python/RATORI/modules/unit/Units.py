@@ -40,8 +40,14 @@ class Units(object):
                 unit.arrest = True
                 unit.unit_turn = 8
             unit.update(turn)
-        for self.shot in self.list_shot:
-            self.shot.update(turn)
+
+        for i in range(len(self.list_shot)):
+            self.list_shot[i].time_dell -= 1
+            if self.list_shot[i].time_dell <= 0:
+                del self.list_shot[i]
+                break
+            self.list_shot[i].update(turn)
+
 
     def draw(self, g):
         """ Отрисовка """
@@ -53,10 +59,7 @@ class Units(object):
     def add_shot(self, turn):
         """ Выстрел """
         shot = Shot(self.size, turn)
-        self.speed += 1
-        if self.speed > 10:
-            self.list_shot.append(shot)
-            self.speed = 0
+        self.list_shot.append(shot)
 
 
     def move_unit(self, unit):
