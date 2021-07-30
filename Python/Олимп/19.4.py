@@ -1,6 +1,9 @@
 N = int(input())
+
+arr = []
 for i in range(N):
-    arr = input()
+    string = input()
+    string = list(string)
+    arr.append(string)
 
-
-print(0)
+print(arr)

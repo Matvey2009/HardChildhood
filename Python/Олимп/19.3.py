@@ -6,11 +6,11 @@ lest = 0
 max_counter = 1
 start_counter = 0
 
-for i in arr:
-    if i > lest:
+for i in range(N):
+    if arr[i] > lest:
         counter = 1
-        lest = i
-        start_counter = arr.index(i)
+        lest = arr[i]
+        start_counter = i
     else:
         counter += 1
         if counter >= M:
