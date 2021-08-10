@@ -9,10 +9,7 @@ for i in range(N):
         if (j + i) % 2 == 0:
             arr1.append(string[j])
         else:
-            arr2.append(string[j])
-            
-            
-            
+            arr2.append(string[j])    
         
 print(arr1)
 print(arr2)
