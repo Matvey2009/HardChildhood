@@ -4,7 +4,8 @@
  Матвей Покидько
 */
 var canvas=document.getElementById("canvas"), ctx=canvas.getContext("2d"),
-    speed = 200, size = 32, width, height, col, row;
+    btnPlay = document.getElementById("play"), btnClear=document.getElementById('clear'),
+    speed = 200, size = 32, width, height, col, row, game = false, focus = false;
 
 // Размеры окна
 onResize();
@@ -18,15 +19,38 @@ function onResize(){
     col = Math.ceil(width / size);
 }
 
+//Старт Пауза
+btnPlay.onclick = () => {
+    focus = true;
+    game = !game;
+}
+
+//Рестарт
+btnClear.onclick = ()=>{
+    focus = true;
+    arr = arrNew();
+}
+
+//Отслежевание курсора при нажатие клика
+onclick = (e)=>{
+    if (!focus){
+        let x = Math.floor(e.clientX / size);
+        let y = Math.floor(e.clientY / size);
+        arr[y][x] = !arr[y][x];
+    }
+    focus = false;
+}
+
 // Цикл аннимации
 setInterval(() => {
     // Заливка фона
-    ctx.fillStyle='green';
+    ctx.fillStyle='#272727';
     ctx.fillRect(0, 0, width, height);
     // Сетка
     drawLins();
     //Обнавление
-    uppdate();
+    if (game)
+        uppdate();
     // Отрисовка
     drawCell();
 }, speed);
@@ -38,7 +62,7 @@ function arrNew(){
     for(let i=0; i<row; i++){
         arr[i] = [];
         for(let j=0; j<col; j++)
-            arr[i][j] = true;
+            arr[i][j] = false;
     }
     return arr;
 }
@@ -68,7 +92,7 @@ function drawLins(){
 function uppdate(){
     for(let i=0; i<row; i++)
         for(let j=0; j<col; j++){
-            //arr[i][j] =! arr[i][j];
+            arr[i][j] =! arr[i][j];
         }
 }
 
