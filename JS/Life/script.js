@@ -5,7 +5,7 @@
 */
 var canvas=document.getElementById("canvas"), ctx=canvas.getContext("2d"),
     btnPlay = document.getElementById("play"), btnClear=document.getElementById('clear'),
-    speed = 200, size = 32, width, height, col, row, game = false, focus = false;
+    speed = 200, size = 16, width, height, col, row, game = false, focus = false;
 
 // Размеры окна
 onResize();
@@ -23,12 +23,17 @@ function onResize(){
 btnPlay.onclick = () => {
     focus = true;
     game = !game;
+    if (game)
+        btnPlay.innerHTML = 'Пауза';
+    else 
+        btnPlay.innerHTML = 'Старт';
 }
 
 //Рестарт
 btnClear.onclick = ()=>{
     focus = true;
     arr = arrNew();
+    game = false;
 }
 
 //Отслежевание курсора при нажатие клика
@@ -39,7 +44,7 @@ onclick = (e)=>{
         arr[y][x] = !arr[y][x];
     }
     focus = false;
-}
+}   
 
 // Цикл аннимации
 setInterval(() => {
@@ -50,7 +55,7 @@ setInterval(() => {
     drawLins();
     //Обнавление
     if (game)
-        uppdate();
+        update();
     // Отрисовка
     drawCell();
 }, speed);
@@ -89,11 +94,31 @@ function drawLins(){
     ctx.closePath();
 }
 
-function uppdate(){
-    for(let i=0; i<row; i++)
-        for(let j=0; j<col; j++){
-            arr[i][j] =! arr[i][j];
+function update(){
+    let buffer = copyArr(arr);
+    for(let i=1; i<row-1; i++)      
+        for(let j=1; j<col-1; j++){
+            // Подсчёт соседий
+            let count = arr[i-1][j-1]+arr[i-1][j]+arr[i-1][j+1] + arr[i][j-1]+arr[i][j+1] + arr[i+1][j-1]+arr[i+1][j]+arr[i+1][j+1];
+            
+            if (!arr[i][j] && count == 3)
+                buffer[i][j] = true;
+            else if (arr[i][j] == true && (count == 3 || count == 2))
+                buffer[i][j] = true;
+            else
+                buffer[i][j] = false;
         }
+    arr = copyArr(buffer);
+}
+
+function copyArr(arr){
+    let buffer = [];
+    for(let i=0; i<row; i++){
+        buffer[i] = [];
+        for(let j=0; j<col; j++)
+            buffer[i][j] = arr[i][j];
+    }
+    return buffer;
 }
 
 function drawCell(){
