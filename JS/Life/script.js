@@ -4,7 +4,7 @@
  Матвей Покидько
 */
 var canvas=document.getElementById("canvas"), ctx=canvas.getContext("2d"),
-    btnPlay = document.getElementById("play"), btnClear=document.getElementById('clear'),
+    btnPlay=document.getElementById("play"), btnClear=document.getElementById('clear'), btnRnd=document.getElementById("random"),
     speed = 200, size = 16, width, height, col, row, game = false, focus = false;
 
 // Размеры окна
@@ -36,6 +36,12 @@ btnClear.onclick = ()=>{
     game = false;
 }
 
+//Случайное рамположение клеток
+btnRnd.onclick = ()=>{
+    focus = true;
+    arr = arrNew(1);
+}
+
 //Отслежевание курсора при нажатие клика
 onclick = (e)=>{
     if (!focus){
@@ -62,12 +68,16 @@ setInterval(() => {
 
 //Масив клеток
 arr = arrNew();
-function arrNew(){
+function arrNew(param = 0){
     let arr = [];
     for(let i=0; i<row; i++){
         arr[i] = [];
-        for(let j=0; j<col; j++)
-            arr[i][j] = false;
+        for(let j=0; j<col; j++){
+            if (param == 0)
+                arr[i][j] = false;
+            else
+                arr[i][j] = Math.random() > 0.61803;
+        }
     }
     return arr;
 }
