@@ -1,10 +1,19 @@
+#ДОРЕШИВАНИЕ
 N = int(input())
+M = 0
+L = 1
+R = 1
 
-if N < 10:
-    M = N    
-else:
-    M = (N - 9) + N * 2
-
+while N > 0:
+    S = R * L * 9
+    if N < S:
+        M += N // L
+        break
+    else:
+        M += S // L
+        N -= S
+        R *= 10
+        L += 1
 print(M)
 
 #ВТОРАЯ
