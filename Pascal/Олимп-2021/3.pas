@@ -3,7 +3,6 @@
 var N, S, G, D: integer;
 
 begin
-  writeln('Введите количество сказок: ', N);
   read(N);
   S := 0;
   while N > 0 do
@@ -20,5 +19,5 @@ begin
     end;
   end;
   
-  writeln('Количество дней: ', S)
+  writeln(S)
 end.
