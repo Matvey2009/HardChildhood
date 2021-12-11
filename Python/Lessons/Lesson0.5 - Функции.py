@@ -63,6 +63,25 @@ def Return_lot():
     age = 11
     return name, age
 
+
+
 main()
 
 input()
+
+def calc(x, y):
+    yield(x+y)
+    yield(x-y)
+    yield(x*y)
+    yield(x/y)
+    
+
+for i in calc(2,3):
+    print(i)
+    
+
+
+input()
+
+
+

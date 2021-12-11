@@ -34,5 +34,10 @@ if x > 0:
 
 print(all([1, 125, "x", "abc", "True", 2 > 1]))
 print(any([0, 0, "", "", "", 0 > 1]))
+print('да') if 2 > 5 else print('YEN')
+if all([5 < 3, 1 > 0, 6 > 2, 0 == 0]):
+    print('ДА')
+else:
+    print('нет')
 
 input()

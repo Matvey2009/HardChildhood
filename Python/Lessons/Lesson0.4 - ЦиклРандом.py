@@ -58,4 +58,16 @@ while True:
         break
     else:
         continue
+
+arr = ['один', 'два', 'три', 'четыре', 'пять']
+for i, value in enumerate(arr):
+    print(i, value)
+
+iArr = iter(arr)
+print(next(reversed(iArr)))
+print(next(reversed(iArr)))
+print(next(reversed(iArr)))
+print(next(reversed(iArr)))
+print(next(reversed(iArr)))
+    
 input()

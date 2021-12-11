@@ -55,4 +55,18 @@ print("Генератор списка циклом -", x)
 x = [i * 4 for i in "Hello" if i != "l"]
 print("Генератор списка циклом с условием -", x)
 
+arrName = ['Maxim', 'Nikita', 'Matvey']
+arrAge = [16, 14, 12]
+arrYear = [2005, 2007, 2009]
+arr = list(zip(arrName, arrAge, arrYear))
+
+for Name, Age, Year in zip(arrName, arrAge, arrYear):
+    print(Name, Age, Year)
+
+a, b, c = zip(*arr)
+print(a)
+print(b)
+print(c)
+    
+print(*arr)
 input()
