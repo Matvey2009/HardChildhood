@@ -11,6 +11,11 @@ else
 	print('6-...')
 end
 
+do  --Блок кода--
+local x = math.max(1, 5 , 4 , 4)
+end
+print(x)
+
 function summ(a, b)
 	local c = a + b
 	return c
