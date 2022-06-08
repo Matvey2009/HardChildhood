@@ -1,6 +1,6 @@
 #include <iostream>
 /*
-список беблеотек
+список беблиотек
 */
 using namespace std; //пространства имён библеотек (без указания пишится std::cout)
 
@@ -34,10 +34,10 @@ int povtor()
 	return 0;
 }
 
-void main() //старт програмы
+void main() //старт программы
 {
 	setlocale(LC_ALL,"RUS"); //активация русского языка
-	system("cls"); //очисткнааа икра
+	system("cls"); //очист окна икраеа
 	povtor();
 	cout << "hello world\n";
 	/*выводв кансоли (\n -  перенос на новую строку,
