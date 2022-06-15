@@ -1,0 +1,8 @@
+print("Введите число 'x0'")
+x0 = float(input())
+print("Введите число 'v0'")
+v0 = float(input())
+print("Введите число 't'")
+t = float(input())
+print("Результат: ", x0 + v0 * t - (9.8 * (t * t) / 2))
+input()
