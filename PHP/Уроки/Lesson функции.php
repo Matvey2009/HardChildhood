@@ -20,8 +20,8 @@
         return $x * 2;
     }
     print(funk4(32));
-    echo '<br/>';
-    print(funk4());
+    echo '<br/>';    
+    print(funk4())  ;
     
     function funk5(string $x){
         var_dump($x);
@@ -37,3 +37,26 @@
 
     $x = fn() => 7 + 8;
     echo '</br>', $x();
+
+    #Генератор YELD
+    echo '<br/><p>Генератор YELD</p>';
+    function funk6(){
+        yield 1;
+        yield 2;
+        yield from[3, 4];
+        yield from new ArrayIterator([5, 6]);
+        yield from funk7();
+        yield 9;
+        yield 10;
+    }
+    function funk7(){
+        yield 7;
+        yield from funk8();
+    }
+    function funk8(){
+        yield 8;
+    }
+    foreach(funk6() as $x){
+        echo "$x "; 
+    }
+    #Вызов
