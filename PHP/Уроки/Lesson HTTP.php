@@ -34,10 +34,24 @@
             Введите ваше имя: <input type="text" name="y">
             <input type="submit" name="x" value="Привет"/>
         </form>
+
+        <h3>POST - запрос</h3>
+        <form metod='POST'>
+            <p>Имя: <input  type='text' name='name'/></p>
+            <p>Возрост<input type='number' name='age'/></p>
+            <input type="submit" value = 'Отправить'>
+        </form>
+
+
     <?php
     //Вывод данных
     echo "<h5>Данные масива _GET</h5>";
     var_export($_GET);
+    echo '<br/><br/>';
+
+    //Вывод данных
+    echo "<h5>Данные масива POST</h5>";
+    var_export($_POST);
     echo '<br/><br/>';
 
     //gt
