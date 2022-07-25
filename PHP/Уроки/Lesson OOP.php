@@ -60,3 +60,21 @@
     echo $hero -> armor, '</br>';
     #echo $hero -> pos; //Ошибка доступа
     echo $hero -> get_pos(), '</br>';
+
+    //Проверка объекта на принодлежности к класу
+    echo 'instansoff hero - ', $hero instanceof Hero, '</br>';
+    echo 'instansoff hero - ', $hero instanceof Unit, '</br>';
+    echo 'instansoff hero - ', $unit instanceof Hero, '</br>';
+    //Набор функций для вставки в класс
+    trait Action {
+        public function talk(){
+            echo 'Я герой', '</br>';
+        }
+    }
+
+    class SuperHero extends Unit {
+        use Action;
+    }
+    
+    $superhero = new SuperHero('Batman', 500);
+    $superhero -> talk();
