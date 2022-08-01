@@ -5,9 +5,12 @@
     funk();
     
     function funk2($x){
-        echo $x, '<br/><br/>';        
+        global $z;
+        $z = 123;
+        echo $x, '<br/><br/>';
     }
     funk2("Я человек");
+    echo $z, '<br/>';
 
     function funk3($x){
         return $x * 2;

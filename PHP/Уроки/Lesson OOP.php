@@ -2,6 +2,7 @@
     namespace lessons;
 
     define('SIZE', 1920); //Константа
+    const TEMP = "Констата";
 
     class Unit {
         const PI = 3.14;
@@ -78,3 +79,24 @@
     
     $superhero = new SuperHero('Batman', 500);
     $superhero -> talk();
+
+    #interface - без реалезации
+    interface iDrawe {
+        function update(); #Абстрактный метод
+    }
+
+    #Абстрактныйы класс - Для связи с другими класами
+    abstract class Item {
+        function update() {
+            echo "123", '</br>';
+        }
+    }
+    #$item = new Item(); --- Нельзя, Ошибка
+    
+    #Запечатаный класс - Без наследованиея
+    final class Calk {
+        public final function delta() {
+            echo "Метод", '</br>'; # Запечатаная функция
+            echo "Запечатоный метод";
+        }
+    }
