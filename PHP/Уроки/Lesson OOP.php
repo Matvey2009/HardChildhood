@@ -41,6 +41,10 @@
             $this -> armor = 1000;
         }
 
+        function __destruct(){
+            echo "Объект уничтожен", '</br>';
+        }
+
         public function get_pos(){
             echo parent:: PI; // sefl тоже работает
             return $this -> pos;
