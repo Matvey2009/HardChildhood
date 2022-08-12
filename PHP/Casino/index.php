@@ -21,6 +21,23 @@
 </form>
 <br/><hr/><br/>
 
+<!--Рандом на сервере-->
+<?php
+    $arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    $random = '?';
+    if (isset($_POST["php_random"])) {
+        $random = rand(0, 36);
+        $arr[$random] += 1;
+    }
+    foreach ($arr as $i) {
+        echo $i, ' ';
+    }
+?>
+<form method="post">
+    <input type="submit" class="button" name="php_random" value='<?='php-рандом: '.$random ?>' >
+</form>
+<br/><hr/><br/>
+
 <?php
     var_export($GLOBALS);
     require_once 'footer.php';
