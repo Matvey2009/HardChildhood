@@ -1,12 +1,3 @@
-t = int(input())
-k = "1"
-for i in range(t):
-	s = 0
-	k = "1"
+for i in range(int(input())):
 	n, a = map(int, input().split())
-	for j in range(n-1):
-		k += "1"
-	k = str(int(k)*a)
-	for j in k:
-		s += int(j)
-	print(s)
+	print(sum(map(int, str(int('1'*len(str(a)))*a))) + int(str(int('1'*(len(str(a))+2))*a)[len(str(int('1'*(len(str(a))+2))*a))//2])*(n - len(str(a))))
