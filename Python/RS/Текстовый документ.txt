@@ -1,0 +1,28 @@
+py -V  - Проверка версии пайтон
+
+import sys
+print(sys.version)  - Проверка версии пайтон из кода
+
+python.exe -m pip install --upgrade pip  - обнавление pip
+
+python -m venv venv  - Cоздание локальной среды
+
+.\venv\Scripts\activate  - Активация вертуальной среды(Должно появиться венв в скобочках)
+
+deactivate  - Отключение вертуальной среды
+
+pip list  - Cписок подключённых модулей
+
+Get-ExecutionPolicy  - Проверка доступа к скриптам
+
+Set-ExecutionPolicy AllSigned(или RemoteSigned)  - Разрешает работу скриптов
+
+pip install Flask  - Установка фласк
+
+py -m pip freeze  - Cписок подключённых модулей
+
+pip freeze > requirements.txt  - Cохранение модулей в список
+
+pip freeze -r requirements.txt  - Загружает библиотеки
+
+gitingnore  - Добавляем github исключения для Flask, Python и VisualStudio
