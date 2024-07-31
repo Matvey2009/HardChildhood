@@ -35,3 +35,8 @@ python app.py  - Запускает сервер
 
 control + c - выход
  
+templates - папка для шаблонов
+
+static - папка для папок css
+
+ 
