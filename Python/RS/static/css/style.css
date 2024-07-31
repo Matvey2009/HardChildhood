@@ -1,0 +1,35 @@
+body{
+    background-color: rgb(64, 99, 87);
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(50, 50, 100);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: rgb(50, 50, 100);
+}
+
+aside {
+    width: 20%;
+    text-align: center;
+}
+
+.contener {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    width: 80%;
+    border: medium solid rgb(50, 50, 100);
+}
+
+.content {
+    text-align: center;
+    width: 80%;
+    border: medium solid rgb(50, 50, 100);
+}
+
