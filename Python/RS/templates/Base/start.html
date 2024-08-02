@@ -9,13 +9,8 @@
 </head>
 <body>
     {%include 'ins/header.html'%}
-    <div class="container">
-        {%include 'ins/aside.html'%}
-        
-        <div class="content">
-            {% block content %}{% endblock %}
-        </div>
+    <div class="content">
+        {% block content %}{% endblock %}
     </div>
-    {%include 'ins/footer.html'%}
 </body>
 </html>

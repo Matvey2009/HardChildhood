@@ -1,17 +1,19 @@
+@import url("palitra.css");
+
 body{
-    background-color: rgb(64, 99, 87);
+    background-color: rgb(25, 25, 25);
 }
 
 header {
     width: 100%;
     text-align: center;
-    background-color: rgb(50, 50, 100);
+    background-color: var(--f1)
 }
 
 footer {
     width: 100%;
     text-align: center;
-    background-color: rgb(50, 50, 100);
+    background-color:  var(--f1)
 }
 
 aside {
@@ -19,17 +21,30 @@ aside {
     text-align: center;
 }
 
-.contener {
+.container {
     margin: auto;
     text-align: center;
     display: flex;
     width: 80%;
-    border: medium solid rgb(50, 50, 100);
 }
 
 .content {
+    
+    margin: auto;
     text-align: center;
     width: 80%;
-    border: medium solid rgb(50, 50, 100);
 }
 
+.blocklog {
+    color: rgb(170, 170, 170);
+    margin: auto;
+    text-align: center;
+    width: 40%;
+    background-color: rgb(35, 35, 35);
+    border: solid 5px var(--f1);
+    border-radius: 10px;
+}
+
+a {
+    color: rgb(130, 130, 130);
+}
