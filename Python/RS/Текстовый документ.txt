@@ -45,3 +45,31 @@ static - папка для папок css
  Оформить их в шаблоны
  Нормальная вёрстка
  Дизайн
+
+pip install flask_sqlalchemy  - Модуль для работы с бд
+
+from flask_sqlalchemy import SQLAlchemy  - подключаем модуль
+
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///sqlite.db' - путь к бд
+
+db = SQLAlchemy(app) - Переменная базы данных
+
+class User(db.Model): - Расписываем классы для таблиц
+
+Переходим в режим пайтон(>>>)
+>>> from app import app, db  - Создастся папка бд
+>>> app.app_context().push()
+>>> db.create_all()
+
+{% block content %}
+    <h1>Пользователи</h1>
+    {% if data %}
+        {% for i in data %}
+            <p>{{i.id}}</p>
+            <p>{{i.name}}</p>
+            <p>{{i.description}}</p> 
+        {% endfor %}
+    {% else %}
+        <p>Данные отсутсвуют</p>
+    {% endif %}
+{% endblock %}

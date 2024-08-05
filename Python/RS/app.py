@@ -1,7 +1,16 @@
 from flask import Flask, render_template
-
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///sqlite.db'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key = True) #Айди
+    name=db.Column(db.String(255), nullable = False)#Имя
+    description=db.Column(db.Text,default="Не найдено")#
+    date=db.Column(db.Date, default=datetime.utcnow) #Время
 
 @app.route('/')
 @app.route('/index')
@@ -33,6 +42,11 @@ def table():
         'title': "Таблица"
     }
     return render_template('table.html', data=data)
+
+@app.route('/users')
+def users():
+    users = User.query.all()
+    return render_template('users.html', data=users)
 
 if __name__ == '__main__':
     app.run(debug=True)

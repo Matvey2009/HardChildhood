@@ -1,0 +1,18 @@
+{% extends 'base/start.html' %}
+
+{% block title %}
+    Пользователи
+{% endblock %}
+
+{% block content %}
+    <h1>Пользователи</h1>
+    {% if data %}
+        {% for i in data %}
+            <p>{{i.id}}</p>
+            <p>{{i.name}}</p>
+            <p>{{i.description}}</p> 
+        {% endfor %}
+    {% else %}
+        <p>Данные отсутсвуют</p>
+    {% endif %}
+{% endblock %}
