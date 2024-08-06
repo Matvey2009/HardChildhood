@@ -35,11 +35,21 @@ aside {
     width: 80%;
 }
 
-.blocklog {
+.blocklog { 
     color: rgb(170, 170, 170);
-    margin: auto;
+    margin: 12em auto;
     text-align: center;
-    width: 40%;
+    width: 35%;
+    background-color: rgb(35, 35, 35);
+    border: solid 5px var(--f1);
+    border-radius: 10px;
+}
+
+.basedata {
+    color: rgb(170, 170, 170);
+    margin: 12em auto;
+    text-align: center;
+    width: 35%;
     background-color: rgb(35, 35, 35);
     border: solid 5px var(--f1);
     border-radius: 10px;

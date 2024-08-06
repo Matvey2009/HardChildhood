@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -29,10 +29,14 @@ def about():
     }
     return render_template('about.html', data=data)
 
-@app.route('/registration')
+    
+@app.route('/registration', methods = ['GET', 'POST'])
 def registration():
+    if request.method == 'POST':
+        print(123)
     data = {
-        'title': "Регестрация"
+        'title': "Регестрация",
+        'user': 'o'
     }
     return render_template('registration.html', data=data)
 
@@ -45,8 +49,31 @@ def table():
 
 @app.route('/users')
 def users():
-    users = User.query.all()
-    return render_template('users.html', data=users)
+    data = {
+        'title': "About",
+        'users': User.query.all()
+    }
+    return render_template('users.html', data=data)
+
+@app.route('/createusers',  methods = ['GET', 'POST'])
+def createusers():
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        user = User(name = name, description = description)
+        try:
+            db.session.add(user)
+            db.session.commit()
+            return redirect('/users')
+        except:
+            return "Ошибка: 0xa0010011c"
+    else:
+        data = {
+            'title': "About",
+            'users': User.query.all()
+        }
+        return render_template('createusers.html', data=data)
+ 
 
 if __name__ == '__main__':
     app.run(debug=True)
