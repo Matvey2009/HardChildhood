@@ -10,7 +10,7 @@
     {% if data.users %}
         {% for i in data.users %}
             {{i.id}}
-            {{i.name}}
+            <a href="/user/{{i.id}}">{{i.name}}</a>
             {{i.description}}
             <p></p>
         {% endfor %}

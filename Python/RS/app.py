@@ -69,11 +69,19 @@ def createusers():
             return "Ошибка: 0xa0010011c"
     else:
         data = {
-            'title': "About",
+            'title': "Создать пользователя",
             'users': User.query.all()
         }
         return render_template('createusers.html', data=data)
  
+
+@app.route('/user/<int:id>')
+def user(id):
+    data = {
+        'title': "Пользователь",
+        "user": User.query.get(id)
+    }
+    return render_template('user.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
