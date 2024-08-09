@@ -1,0 +1,17 @@
+{% extends 'base/start.html' %}
+
+{% block title %}
+    {{data.title}}
+{% endblock %}
+
+{% block content %}
+    <div class="blocklog">
+        <p>Добавить пользователя</p>
+        <form method="post">
+            <p><input type="text" name="name" value="{{data.user.name}}" placeholder="Имя"></p>
+            <p><input type="text" name="description" value="{{data.user.description}}" placeholder="Описание"></p>
+            <button type="submit">Отправить</button>
+            <p><a href="{{url_for('index')}}">Уже есть аккаунт? </a></p>
+        </form>
+    </div>
+{% endblock %}
