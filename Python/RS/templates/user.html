@@ -1,10 +1,18 @@
 {% extends 'base/polz.html' %}
 
+{% block title %}
+    {{data.title}}
+{% endblock %}
+
 {% block content %}
     <div class = "blocklog">
-        <p>Имя пользователя: {{user.name}}</p>
-        <p>ID пользователя: {{user.id}}</p>
-        <p>О пользователе: {{user.description}}</p>
+        <p>Имя пользователя: {{data.user.name}}</p>
+        <p>ID пользователя: {{data.user.id}}</p>
+        <p>Город пользователя: {{data.user.city_id}}</p>
+        <p>О пользователе: {{data.user.description}}</p>
         <p>Пользователь выбрал: "Число"</p>
+        <a href="/user/{{data.user.id}}/update">Редактировать</a>
+        <a href="/user/{{data.user.id}}/delete">Удалить</a>
     </div>
+
 {% endblock %}

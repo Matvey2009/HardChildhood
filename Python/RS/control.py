@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect
 from app import app, db
 from model.user import User
-
+from model.city import City
 
 @app.route('/')
 @app.route('/index')
@@ -51,7 +51,8 @@ def createusers():
     if request.method == 'POST':
         name = request.form['name']
         description = request.form['description']
-        user = User(name = name, description = description)
+        city_id = request.form['city_id']
+        user = User(name = name, description = description, city_id = city_id)
         try:
             db.session.add(user)
             db.session.commit()
@@ -61,7 +62,7 @@ def createusers():
     else:
         data = {
             'title': "Создать пользователя",
-            'users': User.query.all()
+            'city_id': City.query.all()
         }
         return render_template('createusers.html', data=data)
  
@@ -69,7 +70,12 @@ def createusers():
 @app.route('/user/<int:id>')
 def user(id):
     user = User.query.get(id)
-    return render_template('user.html', data=user)
+    user.city_id = City.query.get(user.city_id).name
+    data = {
+        'title': "Создать пользователя",
+        'user': user
+    }    
+    return render_template('user.html', data=data)
 
 @app.route('/user/<int:id>/delete')
 def user_delete(id):
@@ -85,14 +91,18 @@ def user_delete(id):
 def user_update(id):
     user = User.query.get(id)
     if request.method == 'POST':
-        name = request.form['name']
-        description = request.form['description']
-        user = User(name = name, description = description)
+        user.name = request.form['name']
+        user.description = request.form['description']
+        user.city_id = request.form['city_id']
         try:
-            #db.session.update(user)
             db.session.commit()
             return redirect('/users')
         except:
             return "Ошибка"
     else:
-        return render_template('updtate.html', data=user)
+        data = {
+            'title': "Редактирование пользователя",
+            'user': user,
+            'city': City.query.all()
+        }
+        return render_template('update.html', data=data)
