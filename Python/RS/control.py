@@ -56,7 +56,8 @@ def createusers():
         try:
             db.session.add(user)
             db.session.commit()
-            return redirect('/users')
+            return redirect('/user/' + str(user.id))
+            #http://127.0.0.1:5000/user/6
         except:
             return "Ошибка: 0xa0010011c"
     else:
@@ -96,7 +97,7 @@ def user_update(id):
         user.city_id = request.form['city_id']
         try:
             db.session.commit()
-            return redirect('/users')
+            return redirect('/user/' + str(id))
         except:
             return "Ошибка"
     else:
