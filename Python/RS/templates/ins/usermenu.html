@@ -1,5 +1,5 @@
 <div>
     <a href="{{url_for('createusers')}}">Добавить запись</a>
-    <a href="/user/{{data.id}}/update">Обновить запись</a>
-    <a href="/user/{{data.id}}/delete">Обновить запись</a>
+    <a href="{{url_for('user_update', id=data.id)}}">Обновить запись</a>
+    <a href="{{url_for('user_delete', id=data.id)}}">Удалить запись</a>
 </div>

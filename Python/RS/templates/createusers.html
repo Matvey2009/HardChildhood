@@ -5,5 +5,25 @@
 {% endblock %}
 
 {% block content %}
-    {%include 'ins/crus.html'%}
+    <div class="blocklog">
+        <p>Добавить пользователя</p>
+        <form method="post">
+            <p><input type="text" name="name" placeholder="Имя"></p>
+            <p><input type="text" name="description" placeholder="Описание"></p>
+
+            Город: <select name="city_id">
+                {%if data.city_id%}
+                    {%for i in data.city_id%}
+                        <option value="{{i.id}}">{{i.name}}</option>
+                    {%endfor%}
+                {%else%}
+            <option>Нет данных</option>
+                {%endif%}
+            </select>
+
+            <button type="submit">Отправить</button>
+            <p><a href="/table">Перейти к результату</a></p>
+        </form>
+        <p>
+    </div>
 {% endblock %}

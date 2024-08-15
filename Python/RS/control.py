@@ -20,17 +20,6 @@ def about():
     }
     return render_template('about.html', data=data)
 
-    
-@app.route('/registration', methods = ['GET', 'POST'])
-def registration():
-    if request.method == 'POST':
-        print(123)
-    data = {
-        'title': "Регестрация",
-        'user': 'o'
-    }
-    return render_template('registration.html', data=data)
-
 @app.route('/table')
 def table():
     data = {
@@ -46,6 +35,7 @@ def users():
     }
     return render_template('users.html', data=data)
 
+
 @app.route('/createusers',  methods = ['GET', 'POST'])
 def createusers():
     if request.method == 'POST':
@@ -57,7 +47,6 @@ def createusers():
             db.session.add(user)
             db.session.commit()
             return redirect('/user/' + str(user.id))
-            #http://127.0.0.1:5000/user/6
         except:
             return "Ошибка: 0xa0010011c"
     else:
