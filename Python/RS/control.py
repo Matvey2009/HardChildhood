@@ -40,9 +40,10 @@ def users():
 def createusers():
     if request.method == 'POST':
         name = request.form['name']
+        number = request.form['number']
         description = request.form['description']
         city_id = request.form['city_id']
-        user = User(name = name, description = description, city_id = city_id)
+        user = User(name = name, number = number, description = description, city_id = city_id)
         try:
             db.session.add(user)
             db.session.commit()
