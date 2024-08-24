@@ -22,8 +22,12 @@ def about():
 
 @app.route('/table')
 def table():
+    s = 0
+    for i in User.query.all():
+        s += i.number
     data = {
-        'title': "Таблица"
+        'title': "Таблица",
+        'result': s
     }
     return render_template('table.html', data=data)
 
@@ -41,9 +45,8 @@ def createusers():
     if request.method == 'POST':
         name = request.form['name']
         number = request.form['number']
-        description = request.form['description']
         city_id = request.form['city_id']
-        user = User(name = name, number = number, description = description, city_id = city_id)
+        user = User(name = name, number = number, city_id = city_id)
         try:
             db.session.add(user)
             db.session.commit()
@@ -83,7 +86,7 @@ def user_update(id):
     user = User.query.get(id)
     if request.method == 'POST':
         user.name = request.form['name']
-        user.description = request.form['description']
+        user.number = request.form['number']
         user.city_id = request.form['city_id']
         try:
             db.session.commit()

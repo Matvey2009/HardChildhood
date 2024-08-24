@@ -8,9 +8,13 @@
     <div class = "blocklog">
         <p>Имя пользователя: {{data.user.name}}</p>
         <p>ID пользователя: {{data.user.id}}</p>
-        <p>Город пользователя: {{data.user.city_id}}</p>
-        <p>О пользователе: {{data.user.description}}</p>
-        <p>Пользователь выбрал: "Число"</p>
+        <p>Пользователь выбрал: {{data.user.number}}</p>
+        {%if data.user.city_id%}
+            <p>Город пользователя: {{data.user.city_id}}</p>
+        {%else%}
+            <p>Город пользователя: Нет данных</p>
+        {%endif%}
+        
         <a href="/user/{{data.user.id}}/update">Редактировать</a>
         <a href="/user/{{data.user.id}}/delete">Удалить</a>
         <a href="/users">Пользователи</a>

@@ -11,7 +11,7 @@
         {% for i in data.users %}
             {{i.id}}
             <a href="/user/{{i.id}}">{{i.name}}</a>
-            {{i.description}}
+            {{i.number}}
             <br>
         {% endfor %}
     {% else %}
